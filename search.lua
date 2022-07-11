@@ -125,6 +125,7 @@ buttonNames = {"Infinite Yield",
                 "Pendulum Hub",
                 "Archden (9102738712460621506)",
                 "Pineapple Hub",
+                "Auratus X",
 
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
@@ -141,6 +142,7 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/Tescalus/Pendulum-Hubs-Source/main/Pendulum%20Hub%20V5.lua",
                 "https://raw.githubusercontent.com/technologybyte/archden/main/loadstring",
                 "https://raw.githubusercontent.com/alvin677/search/main/pineapple%20radio.lua",
+                "https://raw.githubusercontent.com/RealMrQuacks/AuratusX/master/Load",
 }
 for i = 1, #buttonNames do
     local temp = Instance.new("TextButton")
