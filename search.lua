@@ -116,6 +116,7 @@ buttonNames = {"Infinite Yield",
                 "Orca",
                 "DomainX",
                 "xxHub",
+                "Jon",
 
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
@@ -123,6 +124,7 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/richie0866/orca/master/public/latest.lua",
                 "https://raw.githubusercontent.com/shlexware/DomainX/main/source",
                 "https://pastebin.com/raw/YVE4njap",
+                "https://raw.githubusercontent.com/alvin677/Jon/main/Jon",
 }
 for i = 1, #buttonNames do
     local temp = Instance.new("TextButton")
@@ -139,8 +141,8 @@ for i = 1, #buttonNames do
     temp.TextColor3 = Color3.fromRGB(220, 220, 220)
     temp.TextSize = 14.000
     temp.MouseButton1Click:connect(function()
+    Searchbar.Text = ""
     loadstring(game:HttpGet((buttonScripts[i]),true))()
-        Searchbar.Text = ""
     end)
 
     temp2.CornerRadius = UDim.new(0.300000012, 0)
@@ -322,12 +324,15 @@ function timeTrack()
     end
 end
 
-commands = {"/goto", "/respawn", "/re", "/rejoin", "/cmds"}
+
+
+commands = {"/goto", "/tp", "/respawn", "/re", "/rejoin", "/noclip", "/clip", "/ws", "/walkspeed"
+,"/cmds"}
 function execCmd(cmd)
     local args = cmd:split(" ")
 
-    -- goto
-    if args[1] == "/".."goto" then
+    -- goto/tp
+    if args[1] == "/".."goto" or args[1] == "/".."tp" then
         local target = args[2]
         local plr
         for i,v in pairs(game.Players:GetPlayers()) do
@@ -395,6 +400,22 @@ function execCmd(cmd)
         end
     end
 
+    -- noclip
+    if args[1] == "/".."noclip" then
+        Searchbar.Text = ""
+        _G.noclipstate = true
+        local noclip = _G.noclipstate char = game.Players.LocalPlayer.Character while true do if noclip == _G.noclipstate then for _,v in pairs(char:children()) do pcall(function() if v.className == "Part" then v.CanCollide = false elseif v.ClassName == "Model" then v.Head.CanCollide = false end end) end end game:service("RunService").Stepped:wait() end
+    end
+
+    -- clip
+    if args[1] == "/".."clip" then
+        _G.noclipstate = false
+    end
+
+    -- ws/walkspeed
+    if args[1] == "/".."ws" or args[1] == "/".."walkspeed" then
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = args[2]
+    end
 end
 
 
