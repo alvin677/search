@@ -118,7 +118,8 @@ buttonNames = {"Infinite Yield",
                 "xxHub",
                 "Jon",
                 "AimHot V8",
-                "Hacker Animation [R6]"
+                "Hacker Animation [R6]",
+                "HotdogMorph V6",
 
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
@@ -129,6 +130,7 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/alvin677/Jon/main/Jon",
                 "https://raw.githubusercontent.com/Herrtt/AimHot-v8/master/Main.lua",
                 "https://pastebin.com/raw/3HEkCX6i",
+                "https://raw.githubusercontent.com/alvin677/search/main/HotdogMorph%20V6.lua",
 }
 for i = 1, #buttonNames do
     local temp = Instance.new("TextButton")
