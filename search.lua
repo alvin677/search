@@ -128,7 +128,7 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://pastebin.com/raw/YVE4njap",
                 "https://raw.githubusercontent.com/alvin677/Jon/main/Jon",
                 "https://raw.githubusercontent.com/Herrtt/AimHot-v8/master/Main.lua",
-                "loadstring(game:HttpGet('https://pastebin.com/raw/3HEkCX6i'))()",
+                "https://pastebin.com/raw/3HEkCX6i",
 }
 for i = 1, #buttonNames do
     local temp = Instance.new("TextButton")
