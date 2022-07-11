@@ -117,6 +117,7 @@ buttonNames = {"Infinite Yield",
                 "DomainX",
                 "xxHub",
                 "Jon",
+                "AimHot V8"
 
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
@@ -125,6 +126,7 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/shlexware/DomainX/main/source",
                 "https://pastebin.com/raw/YVE4njap",
                 "https://raw.githubusercontent.com/alvin677/Jon/main/Jon",
+                "https://raw.githubusercontent.com/Herrtt/AimHot-v8/master/Main.lua",
 }
 for i = 1, #buttonNames do
     local temp = Instance.new("TextButton")
