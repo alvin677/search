@@ -32,13 +32,6 @@ local text = Instance.new("TextLabel")
 local status = Instance.new("Frame")
 local UICorner_11 = Instance.new("UICorner")
 
-local script1 = Instance.new("TextButton")
-local script2 = Instance.new("TextButton")
-local script3 = Instance.new("TextButton")
-local UICorner_12 = Instance.new("UICorner")
-local script4 = Instance.new("TextButton")
-local UICorner_13 = Instance.new("UICorner")
-
 Search.Name = "Search"
 Search.Parent = game.CoreGui
 --Search.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -118,80 +111,41 @@ Scripts.Size = UDim2.new(0, 337, 0, 165)
 Scripts.CanvasSize = UDim2.new(0, 0, 50, 0)
 Scripts.ScrollBarThickness = 2
 
-script1.Name = "script1"
-script1.Parent = Scripts
-script1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-script1.BackgroundTransparency = 0.500
-script1.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
-script1.Size = UDim2.new(0, 330, 0, 29)
-script1.Font = Enum.Font.SourceSans
-script1.Text = "Infinite Yield"
-script1.TextColor3 = Color3.fromRGB(220, 220, 220)
-script1.TextSize = 14.000
-script1.MouseButton1Click:connect(function()
-    loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
-    Searchbar.Text = ""
-end)
+buttonNames = {"Infinite Yield",
+                "blueBerry X",
+                "Orca",
+                "DomainX",
+                "xxHub",
 
-UICorner_3.CornerRadius = UDim.new(0.300000012, 0)
-UICorner_3.Parent = script1
+}
+buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
+                "https://raw.githubusercontent.com/alvin677/blueBerry-X/main/source",
+                "https://raw.githubusercontent.com/richie0866/orca/master/public/latest.lua",
+                "https://raw.githubusercontent.com/shlexware/DomainX/main/source",
+                "https://pastebin.com/raw/YVE4njap",
+}
+for i = 1, #buttonNames do
+    local temp = Instance.new("TextButton")
+    local temp2 = Instance.new("UICorner")
 
-script2.Name = "script2"
-script2.Parent = Scripts
-script2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-script2.BackgroundTransparency = 0.500
-script2.Position = UDim2.new(0.0109999999, 0, 0.0040000000, 0)
-script2.Size = UDim2.new(0, 330, 0, 29)
-script2.Font = Enum.Font.SourceSans
-script2.Text = "blueBerry X"
-script2.TextColor3 = Color3.fromRGB(220, 220, 220)
-script2.TextSize = 14.000
-script2.MouseButton1Click:connect(function()
-    --Hub created by LegitNoobNoJoke (black man#1337 prev. Smörgås Tårta#4603)
-    --Script credits goes to the makers.
-    loadstring(game:HttpGet(('https://raw.githubusercontent.com/alvin677/blueBerry-X/main/source'),true))()
-    Searchbar.Text = ""
-end)
+    temp.Name = "script"
+    temp.Parent = Scripts
+    temp.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    temp.BackgroundTransparency = 0.500
+    temp.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
+    temp.Size = UDim2.new(0, 330, 0, 29)
+    temp.Font = Enum.Font.SourceSans
+    temp.Text = "≡ "..buttonNames[i]
+    temp.TextColor3 = Color3.fromRGB(220, 220, 220)
+    temp.TextSize = 14.000
+    temp.MouseButton1Click:connect(function()
+    loadstring(game:HttpGet((buttonScripts[i]),true))()
+        Searchbar.Text = ""
+    end)
 
-script3.Name = "script3"
-script3.Parent = Scripts
-script3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-script3.BackgroundTransparency = 0.500
-script3.Position = UDim2.new(0.0109999999, 0, 0.0040000000, 0)
-script3.Size = UDim2.new(0, 330, 0, 29)
-script3.Font = Enum.Font.SourceSans
-script3.Text = "Orca"
-script3.TextColor3 = Color3.fromRGB(220, 220, 220)
-script3.TextSize = 14.000
-script3.MouseButton1Click:connect(function()
-    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/richie0866/orca/master/public/latest.lua"))()
-    Searchbar.Text = ""
-end)
-
-UICorner_12.CornerRadius = UDim.new(0.300000012, 0)
-UICorner_12.Parent = script3
-
-
-script4.Name = "script4"
-script4.Parent = Scripts
-script4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-script4.BackgroundTransparency = 0.500
-script4.Position = UDim2.new(0.0109999999, 0, 0.0040000000, 0)
-script4.Size = UDim2.new(0, 330, 0, 29)
-script4.Font = Enum.Font.SourceSans
-script4.Text = "DomainX"
-script4.TextColor3 = Color3.fromRGB(220, 220, 220)
-script4.TextSize = 14.000
-script4.MouseButton1Click:connect(function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/DomainX/main/source',true))()
-    Searchbar.Text = ""
-end)
-
-UICorner_13.CornerRadius = UDim.new(0.300000012, 0)
-UICorner_13.Parent = script4
-
-
-
+    temp2.CornerRadius = UDim.new(0.300000012, 0)
+    temp2.Parent = temp
+end
 
 
 
