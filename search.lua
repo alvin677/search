@@ -120,6 +120,11 @@ buttonNames = {"Infinite Yield",
                 "AimHot V8",
                 "Hacker Animation [R6]",
                 "HotdogMorph V6",
+                "LostPoint",
+                "Nullware Hub V3",
+                "Pendulum Hub",
+                "Archden (9102738712460621506)",
+                "Pineapple Hub",
 
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
@@ -131,6 +136,11 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/Herrtt/AimHot-v8/master/Main.lua",
                 "https://pastebin.com/raw/3HEkCX6i",
                 "https://raw.githubusercontent.com/alvin677/search/main/HotdogMorph%20V6.lua",
+                "https://raw.githubusercontent.com/JunglePush/LostPoint/main/LostPointScript",
+                "https://raw.githubusercontent.com/alvin677/search/main/Nullware%20V3.lua",
+                "https://raw.githubusercontent.com/Tescalus/Pendulum-Hubs-Source/main/Pendulum%20Hub%20V5.lua",
+                "https://raw.githubusercontent.com/technologybyte/archden/main/loadstring",
+                "https://raw.githubusercontent.com/alvin677/search/main/pineapple%20radio.lua",
 }
 for i = 1, #buttonNames do
     local temp = Instance.new("TextButton")
@@ -330,9 +340,44 @@ function timeTrack()
     end
 end
 
+function gplr(String)
+	local Found = {}
+	local strl = String:lower()
+	if strl == "all" then
+		for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+			table.insert(Found,v)
+		end
+	elseif strl == "others" then
+		for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+			if v.Name ~= lp.Name then
+				table.insert(Found,v)
+			end
+		end 
+	elseif strl == "me" then
+		for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+			if v.Name == lp.Name then
+				table.insert(Found,v)
+			end
+		end 
+	else
+		for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+			if v.Name:lower():sub(1, #String) == String:lower() then
+				table.insert(Found,v)
+			end
+		end 
+	end
+	return Found 
+end
+
+--
 
 
-commands = {"/goto", "/tp", "/respawn", "/re", "/rejoin", "/noclip", "/clip", "/ws", "/walkspeed"
+
+
+
+
+
+commands = {"/goto", "/tp", "/respawn", "/re", "/rejoin", "/noclip", "/clip", "/ws", "/walkspeed", "/kill"
 ,"/cmds"}
 function execCmd(cmd)
     local args = cmd:split(" ")
@@ -340,18 +385,12 @@ function execCmd(cmd)
     -- goto/tp
     if args[1] == "/".."goto" or args[1] == "/".."tp" then
         local target = args[2]
-        local plr
         for i,v in pairs(game.Players:GetPlayers()) do
             if v.Name:lower():sub(1,#target) == target:lower() then
-                plr = v
    			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[v.Name].Character.HumanoidRootPart.Position)
             end
         end
     end
-    
-        --else
-         --   log.Text = "Failed to find player: "..args[2]
-
 
 
     -- refresh
@@ -421,6 +460,77 @@ function execCmd(cmd)
     -- ws/walkspeed
     if args[1] == "/".."ws" or args[1] == "/".."walkspeed" then
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = args[2]
+    end
+
+    if args[1] == "/".."kill" then
+        
+        local Player = gplr(args[2])
+        if Player[1] then
+            Player = Player[1]
+              LocalPlayer = game.Players.LocalPlayer
+              
+             if LocalPlayer.Character.PrimaryPart ~= nil then
+                    local Character = LocalPlayer.Character
+                    local previous = LocalPlayer.Character.PrimaryPart.CFrame
+                    
+                    Character.Archivable = true
+                    local Clone = Character:Clone()
+                    LocalPlayer.Character = Clone
+                    wait(0.5)
+                    LocalPlayer.Character = Character
+                    wait(0.2)
+                    
+                    if LocalPlayer.Character and Player.Character and Player.Character.PrimaryPart ~= nil then
+                        if LocalPlayer.Character:FindFirstChildOfClass("Humanoid") then
+                            LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):Destroy()
+                        end
+        
+                        local Humanoid = Instance.new("Humanoid")
+                        Humanoid.Parent = LocalPlayer.Character
+        
+                        local Tool = nil
+        
+                        if LocalPlayer.Character:FindFirstChildOfClass("Tool") then
+                            Tool = LocalPlayer.Character:FindFirstChildOfClass("Tool")
+                        elseif LocalPlayer.Backpack and LocalPlayer.Backpack:FindFirstChildOfClass("Tool") then
+                            Tool = LocalPlayer.Backpack:FindFirstChildOfClass("Tool")
+                        end
+                        print(Tool)
+    
+                        if Tool ~= nil then
+                            Tool.Parent = LocalPlayer.Backpack
+                            
+                            Player.Character.HumanoidRootPart.Anchored = true
+                            
+                            local Arm = game.Players.LocalPlayer.Character['Right Arm'].CFrame * CFrame.new(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, -1, 0)
+                            Tool.Grip = Arm:ToObjectSpace(Player.Character.PrimaryPart.CFrame):Inverse()
+                            
+                            Tool.Parent = LocalPlayer.Character
+                            Workspace.CurrentCamera.CameraSubject = Tool.Handle
+                  
+                            repeat
+                                wait()
+                            until not Tool or Tool and (Tool.Parent == Workspace or Tool.Parent == Player.Character)
+                            Player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.1)
+                            Humanoid.Health = 0
+                            LocalPlayer.Character = nil
+                        end
+                    end
+         
+                    spawn(function()
+                    LocalPlayer.CharacterAdded:Wait()
+                    Player.Character.HumanoidRootPart.Anchored = false
+                    if Player.Character.Humanoid.Health <= 15 then
+                     notif("The requested user has been killed!")
+                    repeat wait() until LocalPlayer.Character.PrimaryPart ~= nil
+                    wait(0.4)
+                    LocalPlayer.Character:SetPrimaryPartCFrame(previous)
+                  end
+               end)
+           end
+        end   
+       
     end
 end
 
