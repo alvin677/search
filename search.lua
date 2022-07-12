@@ -126,6 +126,7 @@ buttonNames = {"Infinite Yield",
                 "Archden (9102738712460621506)",
                 "Pineapple Hub",
                 "Auratus X",
+                "Vhub",
 
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
@@ -143,6 +144,7 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/technologybyte/archden/main/loadstring",
                 "https://raw.githubusercontent.com/alvin677/search/main/pineapple%20radio.lua",
                 "https://raw.githubusercontent.com/RealMrQuacks/AuratusX/master/Load",
+                "https://raw.githubusercontent.com/itsyaboivincentt5315/script/main/VHub.txt"
 }
 for i = 1, #buttonNames do
     local temp = Instance.new("TextButton")
