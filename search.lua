@@ -127,6 +127,9 @@ buttonNames = {"Infinite Yield",
                 "Pineapple Hub",
                 "Auratus X",
                 "Vhub",
+                "Coco Hub",
+                "Ez Hub",
+                "CMD-X",
 
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
@@ -144,7 +147,10 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/technologybyte/archden/main/loadstring",
                 "https://raw.githubusercontent.com/alvin677/search/main/pineapple%20radio.lua",
                 "https://raw.githubusercontent.com/RealMrQuacks/AuratusX/master/Load",
-                "https://raw.githubusercontent.com/itsyaboivincentt5315/script/main/VHub.txt"
+                "https://raw.githubusercontent.com/itsyaboivincentt5315/script/main/VHub.txt",
+                "https://gitlab.com/cococc/cocohub/-/raw/master/CocoLoader",
+                "https://raw.githubusercontent.com/debug420/Ez-Industries-Launcher-Data/master/Launcher.lua",
+                "https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source",
 }
 for i = 1, #buttonNames do
     local temp = Instance.new("TextButton")
