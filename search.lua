@@ -132,6 +132,9 @@ buttonNames = {"Infinite Yield",
                 "CMD-X",
                 "Kadium Hub",
 
+                "Walk on walls",
+                "Redwood Prison Gui",
+
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
                 "https://raw.githubusercontent.com/alvin677/blueBerry-X/main/source",
@@ -153,6 +156,10 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/debug420/Ez-Industries-Launcher-Data/master/Launcher.lua",
                 "https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source",
                 "https://gist.githubusercontent.com/thekaisbest/989151a72045eab9ad4bdb171099bdc9/raw/16faf752fb731131aea9ed74af3a394514d2883d/KadiumHub",
+
+                "https://paste.ee/r/SOTCP",
+                "https://raw.githubusercontent.com/alvin677/search/main/redwood.lua",
+
 }
 for i = 1, #buttonNames do
     local temp = Instance.new("TextButton")
