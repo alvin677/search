@@ -130,6 +130,7 @@ buttonNames = {"Infinite Yield",
                 "Coco Hub",
                 "Ez Hub",
                 "CMD-X",
+                "Kadium Hub",
 
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
@@ -151,6 +152,7 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://gitlab.com/cococc/cocohub/-/raw/master/CocoLoader",
                 "https://raw.githubusercontent.com/debug420/Ez-Industries-Launcher-Data/master/Launcher.lua",
                 "https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source",
+                "https://gist.githubusercontent.com/thekaisbest/989151a72045eab9ad4bdb171099bdc9/raw/16faf752fb731131aea9ed74af3a394514d2883d/KadiumHub",
 }
 for i = 1, #buttonNames do
     local temp = Instance.new("TextButton")
