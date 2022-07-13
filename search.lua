@@ -7,7 +7,6 @@ posX = 0.405
 posY = 0.9
 scriptSize = 100
 
-
 local Search = Instance.new("ScreenGui")
 local Bar = Instance.new("Frame")
 local Searchbar = Instance.new("TextBox")
@@ -25,7 +24,7 @@ local Settingsbar = Instance.new("Frame")
 local UICorner_7 = Instance.new("UICorner")
 local timeLabel = Instance.new("TextLabel")
 local UICorner_8 = Instance.new("UICorner")
-local log = Instance.new("TextLabel")
+local log = Instance.new("TextBox")
 local discord = Instance.new("TextButton")
 local suggestion = Instance.new("TextBox")
 local UICorner_9 = Instance.new("UICorner")
@@ -146,7 +145,6 @@ buttonNames = {"Infinite Yield",
                 "Boombox Grippos UI",
                 "Boombox Reaper V2",
                 "Boombox Free Hubs",
-                "Potato Hub",
 
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
@@ -181,7 +179,6 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/alvin677/search/main/grippos",
                 "https://raw.githubusercontent.com/alvin677/search/main/reaperV2",
                 "https://raw.githubusercontent.com/alvin677/search/main/boomboxfree",
-                "https://github.com/alvin677/search/blob/main/potatohub",
 
 
 }
@@ -264,6 +261,8 @@ log.Font = Enum.Font.SourceSans
 log.Text = "discord.gg/sgK9Xx9aBp"
 log.TextColor3 = Color3.fromRGB(220, 220, 220)
 log.TextSize = 18.000
+log.ClearTextOnFocus = false
+log.Active = false
 
 discord.Name = "discord"
 discord.Parent = Settingsbar
@@ -421,20 +420,21 @@ end
 
 
 
-commands = {"/goto", "/tp", "/respawn", "/re", "/rejoin", "/noclip", "/clip", "/ws", "/walkspeed", "/kill"
+commands = {"/goto", "/tp", "/respawn", "/re", "/rejoin", "/rj", "/noclip", "/clip", "/ws", "/walkspeed", "/kill"
 ,"/cmds"}
 function execCmd(cmd)
     local args = cmd:split(" ")
 
     -- goto/tp
     if args[1] == "/".."goto" or args[1] == "/".."tp" then
-        --local target = args[2]
-        --for i,v in pairs(game.Players:GetPlayers()) do
-            --if v.Name:lower():sub(1,#target) == target:lower() then
-            plr = gplr(args[2])
-   			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[plr.Name].Character.HumanoidRootPart.Position)
-            --end
-        --end
+        --[[local target = args[2]
+        for i,v in pairs(game.Players:GetPlayers()) do
+            if v.Name:lower():sub(1,#target) == target:lower() then
+   			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[v.Name].Character.HumanoidRootPart.Position)
+            end
+        end]]
+        local plr = gplr(args[2])
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[plr[1].Name].Character.HumanoidRootPart.Position)
     end
 
 
@@ -477,7 +477,7 @@ function execCmd(cmd)
     end
 
     -- rejoin
-    if args[1] == "/".."rejoin" then
+    if args[1] == "/".."rejoin" or args[1] == "/".."rj" then
         local ts = game:GetService("TeleportService")
         local p = game:GetService("Players").LocalPlayer
         ts:Teleport(game.PlaceId, p)
@@ -577,6 +577,10 @@ function execCmd(cmd)
         end   
        
     end
+
+    if args[1] == "/".."esp" then
+        
+
 end
 
 
