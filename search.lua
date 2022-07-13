@@ -2,11 +2,10 @@
 Made by Cedric#0591
 Type '/cmds' in to the search bar to view all available commands.
 Type a '.' in to the search bar to view all available scripts.
-
+]]--
 posX = 0.405
 posY = 0.9
 scriptSize = 100
-]]--
 
 local Search = Instance.new("ScreenGui")
 local Bar = Instance.new("Frame")
@@ -47,7 +46,7 @@ Bar.BackgroundTransparency = 0.200
 Bar.BorderColor3 = Color3.fromRGB(27, 42, 53)
 Bar.BorderSizePixel = 0
 --Bar.Position = UDim2.new(0.365797549, 0, 0.882571042, 0)
-Bar.Position = UDim2.new(_G.posX, 0, _G.posY, 0)
+Bar.Position = UDim2.new(posX, 0, posY, 0)
 Bar.Size = UDim2.new(0, 350, 0, 35)
 
 Searchbar.Name = "Searchbar"
@@ -111,7 +110,7 @@ Scripts.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Scripts.BorderSizePixel = 0
 Scripts.Position = UDim2.new(0.0174326878, 0, 0.0388888903, 0)
 Scripts.Size = UDim2.new(0, 337, 0, 165)
-Scripts.CanvasSize = UDim2.new(0, 0, _G.scriptSize, 0)
+Scripts.CanvasSize = UDim2.new(0, 0, scriptSize, 0)
 Scripts.ScrollBarThickness = 2
 
 buttonNames = {"Infinite Yield",
