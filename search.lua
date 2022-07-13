@@ -1,9 +1,12 @@
--- Made by Cedric#0591
--- Type '/cmds' in to the search bar to view all available commands.
--- Type a '.' in to the search bar to view all available scripts.
+--[[ 
+Made by Cedric#0591
+Type '/cmds' in to the search bar to view all available commands.
+Type a '.' in to the search bar to view all available scripts.
 
 posX = 0.405
 posY = 0.9
+scriptSize = 100
+]]--
 
 local Search = Instance.new("ScreenGui")
 local Bar = Instance.new("Frame")
@@ -44,7 +47,7 @@ Bar.BackgroundTransparency = 0.200
 Bar.BorderColor3 = Color3.fromRGB(27, 42, 53)
 Bar.BorderSizePixel = 0
 --Bar.Position = UDim2.new(0.365797549, 0, 0.882571042, 0)
-Bar.Position = UDim2.new(posX, 0, posY, 0)
+Bar.Position = UDim2.new(_G.posX, 0, _G.posY, 0)
 Bar.Size = UDim2.new(0, 350, 0, 35)
 
 Searchbar.Name = "Searchbar"
@@ -108,7 +111,7 @@ Scripts.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Scripts.BorderSizePixel = 0
 Scripts.Position = UDim2.new(0.0174326878, 0, 0.0388888903, 0)
 Scripts.Size = UDim2.new(0, 337, 0, 165)
-Scripts.CanvasSize = UDim2.new(0, 0, 50, 0)
+Scripts.CanvasSize = UDim2.new(0, 0, _G.scriptSize, 0)
 Scripts.ScrollBarThickness = 2
 
 buttonNames = {"Infinite Yield",
@@ -116,7 +119,7 @@ buttonNames = {"Infinite Yield",
                 "Orca",
                 "DomainX",
                 "xxHub",
-                "Jon",
+                "Jon (check console for games)",
                 "AimHot V8",
                 "Hacker Animation [R6, FE]",
                 "HotdogMorph V6",
@@ -194,6 +197,7 @@ for i = 1, #buttonNames do
     temp.Text = "≡ "..buttonNames[i]
     temp.TextColor3 = Color3.fromRGB(220, 220, 220)
     temp.TextSize = 14.000
+    temp.TextScaled = true
     temp.MouseButton1Click:connect(function()
     Searchbar.Text = ""
     loadstring(game:HttpGet((buttonScripts[i]),true))()
@@ -255,7 +259,7 @@ log.BorderSizePixel = 0
 log.Position = UDim2.new(0.208571434, 0, 0, 0)
 log.Size = UDim2.new(0, 223, 0, 45)
 log.Font = Enum.Font.SourceSans
-log.Text = "discord.gg/nyYAebMkcD"
+log.Text = "discord.gg/sgK9Xx9aBp"
 log.TextColor3 = Color3.fromRGB(220, 220, 220)
 log.TextSize = 18.000
 
@@ -422,12 +426,13 @@ function execCmd(cmd)
 
     -- goto/tp
     if args[1] == "/".."goto" or args[1] == "/".."tp" then
-        local target = args[2]
-        for i,v in pairs(game.Players:GetPlayers()) do
-            if v.Name:lower():sub(1,#target) == target:lower() then
-   			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[v.Name].Character.HumanoidRootPart.Position)
-            end
-        end
+        --local target = args[2]
+        --for i,v in pairs(game.Players:GetPlayers()) do
+            --if v.Name:lower():sub(1,#target) == target:lower() then
+                local plr = gplr(args[2])
+   			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[plr.Name].Character.HumanoidRootPart.Position)
+            --end
+        --end
     end
 
 
