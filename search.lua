@@ -140,7 +140,7 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/richie0866/orca/master/public/latest.lua",
                 "https://raw.githubusercontent.com/shlexware/DomainX/main/source",
                 "https://pastebin.com/raw/YVE4njap",
-                "https://raw.githubusercontent.com/alvin677/Jon/main/Jon",
+                "https://raw.githubusercontent.com/alvin677/search/main/Jon.lua",
                 "https://raw.githubusercontent.com/Herrtt/AimHot-v8/master/Main.lua",
                 "https://pastebin.com/raw/3HEkCX6i",
                 "https://raw.githubusercontent.com/alvin677/search/main/HotdogMorph%20V6.lua",
