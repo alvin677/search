@@ -2,10 +2,11 @@
 Made by Cedric#0591
 Type '/cmds' in to the search bar to view all available commands.
 Type a '.' in to the search bar to view all available scripts.
-]]--
+
 posX = 0.405
 posY = 0.9
 scriptSize = 100
+]]--
 
 local Search = Instance.new("ScreenGui")
 local Bar = Instance.new("Frame")
@@ -118,7 +119,7 @@ buttonNames = {"Infinite Yield",
                 "Orca",
                 "DomainX",
                 "xxHub",
-                "Jon (check console for games)",
+                "Jon (check console for games (F9)",
                 "AimHot V8",
                 "Hacker Animation [R6, FE]",
                 "HotdogMorph V6",
@@ -425,13 +426,12 @@ function execCmd(cmd)
 
     -- goto/tp
     if args[1] == "/".."goto" or args[1] == "/".."tp" then
-        --local target = args[2]
-        --for i,v in pairs(game.Players:GetPlayers()) do
-            --if v.Name:lower():sub(1,#target) == target:lower() then
-                local plr = gplr(args[2])
-   			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[plr.Name].Character.HumanoidRootPart.Position)
-            --end
-        --end
+        local target = args[2]
+        for i,v in pairs(game.Players:GetPlayers()) do
+            if v.Name:lower():sub(1,#target) == target:lower() then
+   			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[v.Name].Character.HumanoidRootPart.Position)
+            end
+        end
     end
 
 
