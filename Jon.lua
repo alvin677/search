@@ -1,6 +1,33 @@
 --Epic
 print("Loading Jon...")
 
+print("https://www.roblox.com/games/112420803/Kohls-Admin-House-NBC")
+print("https://www.roblox.com/games/12109643/Fencing")
+print("https://www.roblox.com/games/137877687/RoCitizens")
+print("https://www.roblox.com/games/13822889/Lumber-Tycoon-2")
+print("https://www.roblox.com/games/142823291/Murder-Mystery-2")
+print("https://www.roblox.com/games/1537690962/Bee-Swarm-Simulator")
+print("https://www.roblox.com/games/155615604/Prison-Life-Cars-fixed")
+print("https://www.roblox.com/games/189707/Natural-Disaster-Survival")
+print("https://www.roblox.com/games/1962086868/Tower-of-Hell")
+print("https://www.roblox.com/games/2041312716/unnamed --Ragdoll engine deleted")
+print("https://www.roblox.com/games/2317712696/The-Wild-West")
+print("https://www.roblox.com/games/2377868063/ZONE-WAR-Strucid")
+print("https://www.roblox.com/games/2512643572/MEGA-LUCK-Bubble-Gum-Simulator")
+print("https://www.roblox.com/games/286090429/Arsenal")
+print("https://www.roblox.com/games/292439477/Phantom-Forces-July-4th")
+print("https://www.roblox.com/games/301549746/Counter-Blox")
+print("https://www.roblox.com/games/3101667897/Legends-Of-Speed")
+print("https://www.roblox.com/games/3527629287/BIG-Paintball")
+print("https://www.roblox.com/games/3956818381/Ninja-Legends")
+print("https://www.roblox.com/games/402122991/Redwood-Prison")
+print("https://www.roblox.com/games/4042427666/DIMENSION-6-Anime-Fighting-Simulator")
+print("https://www.roblox.com/games/417267366/Dollhouse-Roleplay")
+print("https://www.roblox.com/games/4623386862/Piggy-BREAKOUT-CHAPTER")
+print("https://www.roblox.com/games/537413528/Build-A-Boat-For-Treasure")
+print("https://www.roblox.com/games/606849621/Jailbreak-Update")
+print("https://www.roblox.com/games/920587237/Adopt-Me")
+
 local Jon = Instance.new("ScreenGui")
 local Boot = Instance.new("Frame")
 local BootTitle = Instance.new("TextLabel")
@@ -212,7 +239,7 @@ Credits1.BorderSizePixel = 0
 Credits1.Position = UDim2.new(0.0186235346, 0, 0.701654673, 0)
 Credits1.Size = UDim2.new(0, 179, 0, 32)
 Credits1.Font = Enum.Font.SourceSans
-Credits1.Text = "Scripter: black man#1337"
+Credits1.Text = "Scripter: Cedric#0591"
 Credits1.TextColor3 = Color3.new(0.568627, 0.568627, 0.568627)
 Credits1.TextSize = 20
 Credits1.TextStrokeColor3 = Color3.new(0.764706, 0.764706, 0.764706)
@@ -244,9 +271,9 @@ Quote.Position = UDim2.new(0.060623534, 0, 0.309654653, 0)
 Quote.Size = UDim2.new(0, 439, 0, 98)
 Quote.Font = Enum.Font.SourceSans
 
-local value = math.random(1, 8)
+--[[local value = math.random(1, 8)
 if value == 1 then
-Quote.Text = "\"Thank you for purchasing!\""
+Quote.Text = "\"Hello!!!\""
 elseif value == 2 then
 Quote.Text = "\"How are you today?\""
 elseif value == 3 then
@@ -261,7 +288,8 @@ elseif value == 7 then
 Quote.Text = "\"Fortnite better than Roblox?\""
 elseif value == 8 then
 Quote.Text = "\"Dm me \"sex\" for free robux.\""
-end
+end]]--
+Quote.Text = "Check console for games. Some games do not work anymore. All credits of scripts goes to the creators. This hub will not be updated anymore."
 
 Quote.TextColor3 = Color3.new(0.568627, 0.568627, 0.568627)
 Quote.TextSize = 20
