@@ -146,6 +146,7 @@ buttonNames = {"Infinite Yield",
                 "Boombox Grippos UI",
                 "Boombox Reaper V2",
                 "Boombox Free Hubs",
+                "Potato Hub",
 
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
@@ -180,6 +181,7 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/alvin677/search/main/grippos",
                 "https://raw.githubusercontent.com/alvin677/search/main/reaperV2",
                 "https://raw.githubusercontent.com/alvin677/search/main/boomboxfree",
+                "https://github.com/alvin677/search/blob/main/potatohub",
 
 
 }
@@ -426,12 +428,13 @@ function execCmd(cmd)
 
     -- goto/tp
     if args[1] == "/".."goto" or args[1] == "/".."tp" then
-        local target = args[2]
-        for i,v in pairs(game.Players:GetPlayers()) do
-            if v.Name:lower():sub(1,#target) == target:lower() then
-   			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[v.Name].Character.HumanoidRootPart.Position)
-            end
-        end
+        --local target = args[2]
+        --for i,v in pairs(game.Players:GetPlayers()) do
+            --if v.Name:lower():sub(1,#target) == target:lower() then
+            plr = gplr(args[2])
+   			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[plr.Name].Character.HumanoidRootPart.Position)
+            --end
+        --end
     end
 
 
