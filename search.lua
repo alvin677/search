@@ -2,11 +2,11 @@
 Made by Cedric#0591
 Type '/cmds' in to the search bar to view all available commands.
 Type a '.' in to the search bar to view all available scripts.
-
+]]--
 posX = 0.405
 posY = 0.9
 scriptSize = 100
-]]--
+
 
 local Search = Instance.new("ScreenGui")
 local Bar = Instance.new("Frame")
