@@ -6,6 +6,7 @@ Type a '.' in to the search bar to view all available scripts.
 posX = 0.405
 posY = 0.9
 scriptSize = 100
+searchButton = ";"
 
 local Search = Instance.new("ScreenGui")
 local Bar = Instance.new("Frame")
@@ -420,7 +421,7 @@ end
 
 
 
-commands = {"/goto", "/tp", "/respawn", "/re", "/rejoin", "/rj", "/noclip", "/clip", "/ws", "/walkspeed", "/kill"
+commands = {"/goto", "/tp", "/respawn", "/re", "/rejoin", "/rj", "/noclip", "/clip", "/ws", "/walkspeed", "/kill", "/esp"
 ,"/cmds"}
 function execCmd(cmd)
     local args = cmd:split(" ")
@@ -579,8 +580,31 @@ function execCmd(cmd)
     end
 
     if args[1] == "/".."esp" then
-        
+        local plr = gplr(args[2])
+        local name = plr[1].Name
+        plr = plr[1].Character
+        local BillboardGui = Instance.new("BillboardGui", plr)
+	    local TextLabel = Instance.new("TextLabel", plr.BillboardGui)
 
+        BillboardGui.Parent = plr
+	    BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	    BillboardGui.Active = true
+	    BillboardGui.AlwaysOnTop = true
+	    BillboardGui.LightInfluence = 1
+	    BillboardGui.Size = UDim2.new(0, 100, 0, 100)
+	    BillboardGui.SizeOffset = Vector2.new(0.2, -0.35)
+
+	    TextLabel.Parent = BillboardGui
+	    TextLabel.BackgroundColor3 = Color3.new(0, 150, 0)
+	    TextLabel.BackgroundTransparency = 0.3
+	    TextLabel.BorderSizePixel = 1
+	    TextLabel.Rotation = 90
+	    TextLabel.Size = UDim2.new(0, 50, 0, 30)
+	    TextLabel.Font = Enum.Font.SourceSans
+	    TextLabel.Text = name
+	    TextLabel.TextColor3 = Color3.new(0, 255, 0)
+	    TextLabel.TextTransparency = 1
+    end
 end
 
 
@@ -609,7 +633,7 @@ spawn(timeTrack)
 spawn(suggestions)
 
 game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
-    if key == ';' then
+    if key == searchButton then
         wait(0.01)
         Searchbar:CaptureFocus()
     end
