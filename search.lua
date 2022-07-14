@@ -146,6 +146,7 @@ buttonNames = {"Infinite Yield",
                 "Boombox Grippos UI",
                 "Boombox Reaper V2",
                 "Boombox Free Hubs",
+                "Solaris Hub [Phantom Forces, Arsenal, Bad Business, Sonic Speed Simulator, SCP 3008]",
 
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
@@ -180,6 +181,7 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/alvin677/search/main/grippos",
                 "https://raw.githubusercontent.com/alvin677/search/main/reaperV2",
                 "https://raw.githubusercontent.com/alvin677/search/main/boomboxfree",
+                "https://solarishub.net/script.lua",
 
 
 }
