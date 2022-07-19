@@ -49,6 +49,7 @@ Bar.BorderSizePixel = 0
 --Bar.Position = UDim2.new(0.365797549, 0, 0.882571042, 0)
 Bar.Position = UDim2.new(posX, 0, posY, 0)
 Bar.Size = UDim2.new(0, 350, 0, 35)
+Bar.Visible = false
 
 Searchbar.Name = "Searchbar"
 Searchbar.Parent = Bar
@@ -135,7 +136,7 @@ buttonNames = {"Infinite Yield",
                 "CMD-X",
                 "Kadium Hub",
                 "Walk on walls",
-                "SimpleSpy",
+                "SimpleSpy Remotespy",
                 "Zyrex [Arsenal, KAT, Project Lazarus, BIG Paintball, Phantom Forces]",
                 "Revokeds script hub",
                 "Vestra Hub (.gg/rBwZrgvRH3)",
@@ -147,6 +148,8 @@ buttonNames = {"Infinite Yield",
                 "Boombox Reaper V2",
                 "Boombox Free Hubs",
                 "Solaris Hub [Phantom Forces, Arsenal, Bad Business, Sonic Speed Simulator, SCP 3008]",
+                "Universal FE",
+                "Sirius",
 
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
@@ -182,6 +185,8 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/alvin677/search/main/reaperV2",
                 "https://raw.githubusercontent.com/alvin677/search/main/boomboxfree",
                 "https://solarishub.net/script.lua",
+                "https://raw.githubusercontent.com/Dvrknvss/UniversalFEScriptHub/main/Script",
+                "https://raw.githubusercontent.com/shlexware/Sirius/request/Loader",
 
 
 }
@@ -202,6 +207,7 @@ for i = 1, #buttonNames do
     temp.TextScaled = true
     temp.MouseButton1Click:connect(function()
     Searchbar.Text = ""
+    Bar.Visible = false
     loadstring(game:HttpGet((buttonScripts[i]),true))()
     end)
 
@@ -637,12 +643,14 @@ spawn(suggestions)
 game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
     if key == searchButton then
         wait(0.01)
+        Bar.Visible = true
         Searchbar:CaptureFocus()
     end
 end)
 
 Searchbar.FocusLost:connect(function(enterPressed)
     if enterPressed then
+        Bar.Visible = false
         execCmd(Searchbar.Text)
         Searchbar.Text = ""
     end
