@@ -157,7 +157,6 @@ buttonNames = {"Infinite Yield",
                 "Universal FE",
                 "Sirius",
                 "Arsonia Arsenal",
-                "Dex v4",
 
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
@@ -196,7 +195,6 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/Dvrknvss/UniversalFEScriptHub/main/Script",
                 "https://raw.githubusercontent.com/shlexware/Sirius/request/Loader",
                 "https://raw.githubusercontent.com/The3Bakers4565/Spicy-Bagel/main/Other/Arsenal/Arsonia.lua",
-                "game:GetObjects('rbxassetid://418957341')[1].Source",
 
 
 }
