@@ -2,11 +2,17 @@
 Made by Cedric#0591
 Type '/cmds' in to the search bar to view all available commands.
 Type a '.' in to the search bar to view all available scripts.
-]]--
+
 posX = 0.405
 posY = 0.9
 scriptSize = 100
-searchButton = ";"
+searchButton = ";"]]--
+
+posX = _G.posX
+posY = _G.posY
+scriptSize = _G.scriptSize
+searchButton = _G.searchButton
+local spawnPoint = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
 
 local Search = Instance.new("ScreenGui")
 local Bar = Instance.new("Frame")
@@ -207,8 +213,8 @@ for i = 1, #buttonNames do
     temp.TextScaled = true
     temp.MouseButton1Click:connect(function()
     Searchbar.Text = ""
-    Bar.Visible = false
     loadstring(game:HttpGet((buttonScripts[i]),true))()
+    Bar.Visible = false
     end)
 
     temp2.CornerRadius = UDim.new(0.300000012, 0)
@@ -429,7 +435,7 @@ end
 
 
 
-commands = {"/goto", "/tp", "/respawn", "/re", "/rejoin", "/rj", "/noclip", "/clip", "/ws", "/walkspeed", "/kill", "/esp"
+commands = {"/goto", "/tp", "/respawn", "/re", "/rejoin", "/rj", "/noclip", "/clip", "/ws", "/walkspeed", "/kill", "/esp", "/setspawn", "/spawn"
 ,"/cmds"}
 function execCmd(cmd)
     local args = cmd:split(" ")
@@ -612,6 +618,16 @@ function execCmd(cmd)
 	    TextLabel.Text = name
 	    TextLabel.TextColor3 = Color3.new(0, 255, 0)
 	    TextLabel.TextTransparency = 1
+    end
+    
+    -- setspawn
+    if args[1] == "/".."setspawn" then
+        spawnPoint = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+    end
+    
+    -- spawn
+    if args[1] == "/".."spawn" then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(spawnPoint)
     end
 end
 
