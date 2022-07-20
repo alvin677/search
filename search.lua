@@ -197,6 +197,7 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/The3Bakers4565/Spicy-Bagel/main/Other/Arsenal/Arsonia.lua",
 
 
+
 }
 for i = 1, #buttonNames do
     local temp = Instance.new("TextButton")
@@ -222,6 +223,37 @@ for i = 1, #buttonNames do
     temp2.CornerRadius = UDim.new(0.300000012, 0)
     temp2.Parent = temp
 end
+
+
+
+
+local dex = Instance.new("TextButton")
+local dex2 = Instance.new("UICorner")
+dex.Name = "script"
+dex.Parent = Scripts
+dex.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+dex.BackgroundTransparency = 0.500
+dex.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
+dex.Size = UDim2.new(0, 330, 0, 29)
+dex.Font = Enum.Font.SourceSans
+dex.Text = "≡ Dex v4"
+dex.TextColor3 = Color3.fromRGB(220, 220, 220)
+dex.TextSize = 14.000
+dex.TextScaled = true
+dex.MouseButton1Click:connect(function()
+Searchbar.Text = ""
+Bar.Visible = false
+loadstring(game:GetObjects("rbxassetid://418957341")[1].Source)()
+end)
+dex2.CornerRadius = UDim.new(0.300000012, 0)
+dex2.Parent = temp
+
+
+
+
+
+
+
 
 UICorner_4.CornerRadius = UDim.new(0.300000012, 0)
 UICorner_4.Parent = script2
