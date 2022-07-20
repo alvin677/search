@@ -156,6 +156,7 @@ buttonNames = {"Infinite Yield",
                 "Solaris Hub [Phantom Forces, Arsenal, Bad Business, Sonic Speed Simulator, SCP 3008]",
                 "Universal FE",
                 "Sirius",
+                "Arsonia Arsenal",
 
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
@@ -193,6 +194,7 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://solarishub.net/script.lua",
                 "https://raw.githubusercontent.com/Dvrknvss/UniversalFEScriptHub/main/Script",
                 "https://raw.githubusercontent.com/shlexware/Sirius/request/Loader",
+                "https://raw.githubusercontent.com/The3Bakers4565/Spicy-Bagel/main/Other/Arsenal/Arsonia.lua",
 
 
 }
