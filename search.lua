@@ -213,8 +213,8 @@ for i = 1, #buttonNames do
     temp.TextScaled = true
     temp.MouseButton1Click:connect(function()
     Searchbar.Text = ""
-    loadstring(game:HttpGet((buttonScripts[i]),true))()
     Bar.Visible = false
+    loadstring(game:HttpGet((buttonScripts[i]),true))()
     end)
 
     temp2.CornerRadius = UDim.new(0.300000012, 0)
