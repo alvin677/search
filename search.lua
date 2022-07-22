@@ -7,11 +7,25 @@ posX = 0.405
 posY = 0.9
 searchButton = ";"]]--
 
+
 posX = _G.posX
 posY = _G.posY
 searchButton = _G.searchButton
 commandPrefix = _G.commandPrefix
 local spawnPoint = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+
+-- Intro thing
+
+pcall(function()
+    local StarterGui = game:GetService("StarterGui")
+    
+    StarterGui:SetCore("SendNotification", {
+            Title = "Press "..searchButton.." to use.";
+            Text = "Search Script by Cedric#0591 and Jonnygaming Tv#2650";
+        })
+    end)
+
+--
 
 local Search = Instance.new("ScreenGui")
 local Bar = Instance.new("Frame")
