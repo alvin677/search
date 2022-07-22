@@ -493,16 +493,18 @@ end
 
 function updateSearch()
     while wait(0.2) do
+        canvSize = 0
         for i,button in pairs(Scripts:GetChildren()) do
             if button:IsA("TextButton") then
                 local searchText = string.lower(Searchbar.Text)
                 
                 local firstLetter = string.sub(searchText, 1, 1)
-                if searchText ~= "" and firstLetter ~= "/" then
-                    ScriptsFrame.Visible = true
+                if searchText ~= "" and firstLetter ~= commandPrefix then
+                    ScriptsFrame.Visible = true -- user start typing
                     local buttonText = string.lower(button.Text)
                     if string.find(buttonText, searchText) then
                         button.Visible = true
+                        canvSize += 1
                     else
                         button.Visible = false
                     end
@@ -512,6 +514,7 @@ function updateSearch()
                 end
             end
         end
+        Scripts.CanvasSize = UDim2.new(0, 0, canvSize*0.172, 0)
     end
 end
 
@@ -645,7 +648,7 @@ function execCmd(cmd)
     end
 
     -- ws/walkspeed
-    if args[1] == commandPrefix.."ws" or args[1] == "/".."walkspeed" then
+    if args[1] == commandPrefix.."ws" or args[1] == commandPrefix.."walkspeed" then
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = args[2]
     end
 
