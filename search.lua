@@ -5,13 +5,12 @@ Type a '.' in to the search bar to view all available scripts.
 
 posX = 0.405
 posY = 0.9
-scriptSize = 100
 searchButton = ";"]]--
 
 posX = _G.posX
 posY = _G.posY
-scriptSize = _G.scriptSize
 searchButton = _G.searchButton
+commandPrefix = _G.commandPrefix
 local spawnPoint = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
 
 local Search = Instance.new("ScreenGui")
@@ -40,6 +39,11 @@ local UICorner_10 = Instance.new("UICorner")
 local text = Instance.new("TextLabel")
 local status = Instance.new("Frame")
 local UICorner_11 = Instance.new("UICorner")
+
+local sourceView = Instance.new("Frame")
+local code = Instance.new("TextBox")
+local close = Instance.new("TextButton")
+local corners = Instance.new("UICorner")
 
 Search.Name = "Search"
 Search.Parent = game.CoreGui
@@ -109,18 +113,6 @@ ScriptsFrame.Position = UDim2.new(0, 0, -5.31428576, 0)
 ScriptsFrame.Size = UDim2.new(0, 350, 0, 180)
 ScriptsFrame.Visible = false
 
-Scripts.Name = "Scripts"
-Scripts.Parent = ScriptsFrame
-Scripts.Active = true
-Scripts.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-Scripts.BackgroundTransparency = 1.000
-Scripts.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Scripts.BorderSizePixel = 0
-Scripts.Position = UDim2.new(0.0174326878, 0, 0.0388888903, 0)
-Scripts.Size = UDim2.new(0, 337, 0, 165)
-Scripts.CanvasSize = UDim2.new(0, 0, scriptSize, 0)
-Scripts.ScrollBarThickness = 2
-
 buttonNames = {"Infinite Yield",
                 "blueBerry X",
                 "Orca",
@@ -156,7 +148,9 @@ buttonNames = {"Infinite Yield",
                 "Solaris Hub [Phantom Forces, Arsenal, Bad Business, Sonic Speed Simulator, SCP 3008]",
                 "Universal FE",
                 "Sirius",
-                "Arsonia Arsenal",
+                "Arsonia [Arsenal]",
+                "Strawhook [Phantom Forces]",
+                "Dex v4",
 
 }
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
@@ -195,68 +189,165 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/Dvrknvss/UniversalFEScriptHub/main/Script",
                 "https://raw.githubusercontent.com/shlexware/Sirius/request/Loader",
                 "https://raw.githubusercontent.com/The3Bakers4565/Spicy-Bagel/main/Other/Arsenal/Arsonia.lua",
+                "https://raw.githubusercontent.com/VoidMasterX/strawhook/main/script.lua",
+                "https://raw.githubusercontent.com/alvin677/search/main/dexv4.lua?token=GHSAT0AAAAAABVYQNBKQDMPPLCTCDFH65O2YW2YCZA"
 
 
 
 }
+
+Scripts.Name = "Scripts"
+Scripts.Parent = ScriptsFrame
+Scripts.Active = true
+Scripts.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Scripts.BackgroundTransparency = 1.000
+Scripts.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Scripts.BorderSizePixel = 0
+Scripts.Position = UDim2.new(0.0174326878, 0, 0.0388888903, 0)
+Scripts.Size = UDim2.new(0, 337, 0, 165)
+Scripts.CanvasSize = UDim2.new(0, 0, #buttonNames*0.172, 0)
+Scripts.ScrollBarThickness = 2
+
 for i = 1, #buttonNames do
     local temp = Instance.new("TextButton")
     local temp2 = Instance.new("UICorner")
+    local source = Instance.new("TextButton")
+    local source2 = Instance.new("UICorner")
 
     temp.Name = "script"
     temp.Parent = Scripts
     temp.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     temp.BackgroundTransparency = 0.500
     temp.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
-    temp.Size = UDim2.new(0, 330, 0, 29)
+    temp.Size = UDim2.new(0, 290, 0, 29)
     temp.Font = Enum.Font.SourceSans
     temp.Text = "≡ "..buttonNames[i]
     temp.TextColor3 = Color3.fromRGB(220, 220, 220)
     temp.TextSize = 14.000
     temp.TextScaled = true
     temp.MouseButton1Click:connect(function()
-    Searchbar.Text = ""
-    Bar.Visible = false
-    loadstring(game:HttpGet((buttonScripts[i]),true))()
+        Searchbar.Text = ""
+        Bar.Visible = false
+        loadstring(game:HttpGet((buttonScripts[i]),true))()
     end)
 
     temp2.CornerRadius = UDim.new(0.300000012, 0)
     temp2.Parent = temp
+
+    source.Name = "source"
+    source.Parent = temp
+    source.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    source.BackgroundTransparency = 0.500
+    source.Position = UDim2.new(1.01034486, 0, 0, 0)
+    source.Size = UDim2.new(0, 37, 0, 29)
+    source.Font = Enum.Font.SourceSans
+    source.Text = "📜"
+    source.TextColor3 = Color3.fromRGB(0, 0, 0)
+    source.TextSize = 14.000
+    source.MouseButton1Click:connect(function()
+        sourceView.Visible = true
+        code.Text = buttonScripts[i];
+    end)
+
+    source2.CornerRadius = UDim.new(0.300000012, 0)
+    source2.Parent = source
 end
 
 
+-- SCRIPT VIEW
+sourceView.Name = "sourceView"
+sourceView.Parent = Bar
+sourceView.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+sourceView.BackgroundTransparency = 0.800
+sourceView.Position = UDim2.new(-0.485630929, 0, -18.2523746, 0)
+sourceView.Size = UDim2.new(0, 681, 0, 441)
+sourceView.Visible = false
+sourceView.Draggable = true
 
+-- skidded draggable script lol
+local UserInputService = game:GetService("UserInputService")
 
-local dex = Instance.new("TextButton")
-local dex2 = Instance.new("UICorner")
-dex.Name = "script"
-dex.Parent = Scripts
-dex.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-dex.BackgroundTransparency = 0.500
-dex.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
-dex.Size = UDim2.new(0, 330, 0, 29)
-dex.Font = Enum.Font.SourceSans
-dex.Text = "≡ Dex v4"
-dex.TextColor3 = Color3.fromRGB(220, 220, 220)
-dex.TextSize = 14.000
-dex.TextScaled = true
-dex.MouseButton1Click:connect(function()
-Searchbar.Text = ""
-Bar.Visible = false
-loadstring(game:GetObjects("rbxassetid://418957341")[1].Source)()
+local gui = sourceView
+
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local function update(input)
+    local delta = input.Position - dragStart
+    gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+gui.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = gui.Position
+        
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
 end)
-dex2.CornerRadius = UDim.new(0.300000012, 0)
-dex2.Parent = temp
+
+gui.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        update(input)
+    end
+end)
+-- end of skidded draggable
 
 
 
+code.Name = "code"
+code.Parent = sourceView
+code.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+code.BackgroundTransparency = 0.500
+code.BorderSizePixel = 0
+code.Position = UDim2.new(0.0264317188, 0, 0.0453514755, 0)
+code.Size = UDim2.new(0, 647, 0, 410)
+code.ClearTextOnFocus = false
+code.Font = Enum.Font.SourceSans
+code.MultiLine = true
+code.Text = ""
+code.TextColor3 = Color3.fromRGB(255, 255, 255)
+code.TextScaled = true
+code.TextSize = 14.000
+code.TextWrapped = true
+code.TextXAlignment = Enum.TextXAlignment.Left
+code.TextYAlignment = Enum.TextYAlignment.Top
+
+close.Name = "close"
+close.Parent = sourceView
+close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+close.BackgroundTransparency = 1.000
+close.BorderSizePixel = 0
+close.Position = UDim2.new(0.904552162, 0, 0, 0)
+close.Size = UDim2.new(0, 28, 0, 20)
+close.Font = Enum.Font.IndieFlower
+close.Text = "X"
+close.TextColor3 = Color3.fromRGB(0, 0, 0)
+close.TextSize = 30.000
+close.TextWrapped = true
+close.MouseButton1Click:connect(function()
+    code.Text = ""
+    sourceView.Visible = false
+end)
+
+corners.CornerRadius = UDim.new(0.100000001, 0)
+corners.Parent = sourceView
+-- END OF SCRIPT VIEW
 
 
-
-
-
-UICorner_4.CornerRadius = UDim.new(0.300000012, 0)
-UICorner_4.Parent = script2
 
 UIListLayout.Parent = Scripts
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
@@ -467,13 +558,17 @@ end
 
 
 
-commands = {"/goto", "/tp", "/respawn", "/re", "/rejoin", "/rj", "/noclip", "/clip", "/ws", "/walkspeed", "/kill", "/esp", "/setspawn", "/spawn"
-,"/cmds"}
+commands = {"goto", "tp", "respawn", "re", "rejoin", "rj", "noclip", "clip", "ws", "walkspeed", "kill", "esp", "setspawn", "spawn"
+,"cmds"}
+for i, v in pairs(commands) do
+    commands[i] = commandPrefix..commands[i]
+end
+
 function execCmd(cmd)
     local args = cmd:split(" ")
 
     -- goto/tp
-    if args[1] == "/".."goto" or args[1] == "/".."tp" then
+    if args[1] == commandPrefix.."goto" or args[1] == commandPrefix.."tp" then
         --[[local target = args[2]
         for i,v in pairs(game.Players:GetPlayers()) do
             if v.Name:lower():sub(1,#target) == target:lower() then
@@ -486,7 +581,7 @@ function execCmd(cmd)
 
 
     -- refresh
-    if args[1] == "/".."re" then
+    if args[1] == commandPrefix.."re" then
         --[[game.Players.LocalPlayer.Character.Humanoid.Name = 1
         local l = game.Players.LocalPlayer.Character["1"]:Clone()
         l.Parent = game.Players.LocalPlayer.Character
@@ -519,42 +614,42 @@ function execCmd(cmd)
     end
 
     -- respawn
-    if args[1] == "/".."respawn" then
+    if args[1] == commandPrefix.."respawn" then
         game.Players.LocalPlayer.Character.Humanoid.Health = 0
     end
 
     -- rejoin
-    if args[1] == "/".."rejoin" or args[1] == "/".."rj" then
+    if args[1] == commandPrefix.."rejoin" or args[1] == commandPrefix.."rj" then
         local ts = game:GetService("TeleportService")
         local p = game:GetService("Players").LocalPlayer
         ts:Teleport(game.PlaceId, p)
     end
 
     -- cmds
-    if args[1] == "/".."cmds" then
+    if args[1] == commandPrefix.."cmds" then
         for i, v in pairs(commands) do
             print(v)
         end
     end
 
     -- noclip
-    if args[1] == "/".."noclip" then
+    if args[1] == commandPrefix.."noclip" then
         Searchbar.Text = ""
         _G.noclipstate = true
         local noclip = _G.noclipstate char = game.Players.LocalPlayer.Character while true do if noclip == _G.noclipstate then for _,v in pairs(char:children()) do pcall(function() if v.className == "Part" then v.CanCollide = false elseif v.ClassName == "Model" then v.Head.CanCollide = false end end) end end game:service("RunService").Stepped:wait() end
     end
 
     -- clip
-    if args[1] == "/".."clip" then
+    if args[1] == commandPrefix.."clip" then
         _G.noclipstate = false
     end
 
     -- ws/walkspeed
-    if args[1] == "/".."ws" or args[1] == "/".."walkspeed" then
+    if args[1] == commandPrefix.."ws" or args[1] == "/".."walkspeed" then
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = args[2]
     end
 
-    if args[1] == "/".."kill" then
+    if args[1] == commandPrefix.."kill" then
         
         local Player = gplr(args[2])
         if Player[1] then
@@ -625,7 +720,7 @@ function execCmd(cmd)
        
     end
 
-    if args[1] == "/".."esp" then
+    if args[1] == commandPrefix.."esp" then
         local plr = gplr(args[2])
         local name = plr[1].Name
         plr = plr[1].Character
@@ -653,12 +748,12 @@ function execCmd(cmd)
     end
     
     -- setspawn
-    if args[1] == "/".."setspawn" then
+    if args[1] == commandPrefix.."setspawn" then
         spawnPoint = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
     end
     
     -- spawn
-    if args[1] == "/".."spawn" then
+    if args[1] == commandPrefix.."spawn" then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(spawnPoint)
     end
 end
@@ -674,7 +769,7 @@ function suggestions()
         end
         local searchText = string.lower(Searchbar.Text)
         local firstLetter = string.sub(searchText, 1, 1)
-        if searchText ~= "" and firstLetter == "/" then
+        if searchText ~= "" and firstLetter == commandPrefix then
             for i,v in pairs(commands) do
                 if string.find(v, searchText) then
                     suggestion.Text = v
