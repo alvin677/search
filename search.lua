@@ -229,6 +229,7 @@ for i = 1, #buttonNames do
     temp.MouseButton1Click:connect(function()
         Searchbar.Text = ""
         Bar.Visible = false
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/alvin677/search/main/prompt.lua",true))()
         loadstring(game:HttpGet((buttonScripts[i]),true))()
     end)
 
