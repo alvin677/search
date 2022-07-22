@@ -208,6 +208,7 @@ Scripts.Size = UDim2.new(0, 337, 0, 165)
 Scripts.CanvasSize = UDim2.new(0, 0, #buttonNames*0.172, 0)
 Scripts.ScrollBarThickness = 2
 
+-- Scripts from this file
 for i = 1, #buttonNames do
     local temp = Instance.new("TextButton")
     local temp2 = Instance.new("UICorner")
@@ -252,6 +253,57 @@ for i = 1, #buttonNames do
     source2.CornerRadius = UDim.new(0.300000012, 0)
     source2.Parent = source
 end
+
+-- Scripts from website
+local scriptAmount = game:HttpGet("https://rs.jonhosting.com/rblx/a")
+scriptAmount += 1
+for i = 0, scriptAmount do
+    local scriptName = game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".txt")
+    local temp = Instance.new("TextButton")
+    local temp2 = Instance.new("UICorner")
+    local source = Instance.new("TextButton")
+    local source2 = Instance.new("UICorner")
+
+    temp.Name = "script"
+    temp.Parent = Scripts
+    temp.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    temp.BackgroundTransparency = 0.500
+    temp.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
+    temp.Size = UDim2.new(0, 290, 0, 29)
+    temp.Font = Enum.Font.SourceSans
+    temp.Text = scriptName
+    temp.TextColor3 = Color3.fromRGB(220, 220, 220)
+    temp.TextSize = 14.000
+    temp.TextScaled = true
+    temp.MouseButton1Click:connect(function()
+        Searchbar.Text = ""
+        Bar.Visible = false
+        print("executing "..game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".lua"))
+        loadstring(game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".lua",true))()
+    end)
+
+    temp2.CornerRadius = UDim.new(0.300000012, 0)
+    temp2.Parent = temp
+
+    source.Name = "source"
+    source.Parent = temp
+    source.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    source.BackgroundTransparency = 0.500
+    source.Position = UDim2.new(1.01034486, 0, 0, 0)
+    source.Size = UDim2.new(0, 37, 0, 29)
+    source.Font = Enum.Font.SourceSans
+    source.Text = "📜"
+    source.TextColor3 = Color3.fromRGB(0, 0, 0)
+    source.TextSize = 14.000
+    source.MouseButton1Click:connect(function()
+        sourceView.Visible = true
+        code.Text = game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".lua");
+    end)
+
+    source2.CornerRadius = UDim.new(0.300000012, 0)
+    source2.Parent = source
+end
+
 
 
 -- SCRIPT VIEW
