@@ -2,31 +2,45 @@
 Made by Cedric#0591
 Type '/cmds' in to the search bar to view all available commands.
 Type a '.' in to the search bar to view all available scripts.
-
-posX = 0.405
-posY = 0.9
-searchButton = ";"]]--
+]]--
 
 
+
+
+
+
+
+-- TO YOU LOOKING AT THIS CODE, IF YOU'RE GOING TO EDIT AND REWRITE, THEN PLEASE JOIN OUR DISCORD SERVER WHERE WE TOGETHER CAN CONTRIBUTE AND WORK: https://discord.gg/sgK9Xx9aBp
+
+
+
+
+
+
+
+
+-- Just some settings variables
 posX = _G.posX
 posY = _G.posY
 searchButton = _G.searchButton
 commandPrefix = _G.commandPrefix
 local spawnPoint = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
 
--- Intro thing
 
+-- Intro thing to let the user know the script executed
 pcall(function()
     local StarterGui = game:GetService("StarterGui")
     
     StarterGui:SetCore("SendNotification", {
-            Title = "Press "..searchButton.." to use.";
+            Title = "Press "..searchButton.." to use. Type "..commandPrefix.." in bar to use commands.";
             Text = "Search Script by Cedric#0591 and Jonnygaming Tv#2650";
         })
     end)
-
 --
 
+
+
+-- Creating most Instances
 local Search = Instance.new("ScreenGui")
 local Bar = Instance.new("Frame")
 local Searchbar = Instance.new("TextBox")
@@ -54,6 +68,7 @@ local text = Instance.new("TextLabel")
 local status = Instance.new("Frame")
 local UICorner_11 = Instance.new("UICorner")
 
+-- These are to view source code of scripts
 local sourceView = Instance.new("Frame")
 local code = Instance.new("TextBox")
 local close = Instance.new("TextButton")
@@ -61,7 +76,6 @@ local corners = Instance.new("UICorner")
 
 Search.Name = "Search"
 Search.Parent = game.CoreGui
---Search.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 Search.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Bar.Name = "Bar"
@@ -70,7 +84,6 @@ Bar.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 Bar.BackgroundTransparency = 0.200
 Bar.BorderColor3 = Color3.fromRGB(27, 42, 53)
 Bar.BorderSizePixel = 0
---Bar.Position = UDim2.new(0.365797549, 0, 0.882571042, 0)
 Bar.Position = UDim2.new(posX, 0, posY, 0)
 Bar.Size = UDim2.new(0, 350, 0, 35)
 Bar.Visible = false
@@ -84,7 +97,6 @@ Searchbar.Position = UDim2.new(0.0174326878, 0, 0.120167762, 0)
 Searchbar.Size = UDim2.new(0, 290, 0, 27)
 Searchbar.ZIndex = 2
 Searchbar.Font = Enum.Font.SourceSans
---Searchbar.Text = "search here"
 Searchbar.Text = ""
 Searchbar.TextColor3 = Color3.fromRGB(220, 220, 220)
 Searchbar.TextSize = 20.000
@@ -127,6 +139,7 @@ ScriptsFrame.Position = UDim2.new(0, 0, -5.31428576, 0)
 ScriptsFrame.Size = UDim2.new(0, 350, 0, 180)
 ScriptsFrame.Visible = false
 
+-- A list of all names for each script
 buttonNames = {"Infinite Yield",
                 "blueBerry X",
                 "Orca",
@@ -167,6 +180,8 @@ buttonNames = {"Infinite Yield",
                 "Dex v4",
 
 }
+
+-- The actual script to all names
 buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
                 "https://raw.githubusercontent.com/alvin677/blueBerry-X/main/source",
                 "https://raw.githubusercontent.com/richie0866/orca/master/public/latest.lua",
@@ -210,6 +225,7 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
 
 }
 
+-- The main Scripts frame.
 Scripts.Name = "Scripts"
 Scripts.Parent = ScriptsFrame
 Scripts.Active = true
@@ -222,7 +238,7 @@ Scripts.Size = UDim2.new(0, 337, 0, 165)
 Scripts.CanvasSize = UDim2.new(0, 0, #buttonNames*0.172, 0)
 Scripts.ScrollBarThickness = 2
 
--- Scripts from this file
+-- Scripts from this file (the lists above)
 for i = 1, #buttonNames do
     local temp = Instance.new("TextButton")
     local temp2 = Instance.new("UICorner")
@@ -269,7 +285,7 @@ for i = 1, #buttonNames do
     source2.Parent = source
 end
 
--- Scripts from website
+-- Scripts from website (the database, community uploaded scripts)
 local scriptAmount = game:HttpGet("https://rs.jonhosting.com/rblx/a")
 scriptAmount += 1
 for i = 0, scriptAmount do
@@ -286,7 +302,7 @@ for i = 0, scriptAmount do
     temp.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
     temp.Size = UDim2.new(0, 290, 0, 29)
     temp.Font = Enum.Font.SourceSans
-    temp.Text = scriptName
+    temp.Text = "⚠️ "..scriptName
     temp.TextColor3 = Color3.fromRGB(220, 220, 220)
     temp.TextSize = 14.000
     temp.TextScaled = true
@@ -321,7 +337,7 @@ end
 
 
 
--- SCRIPT VIEW
+-- SCRIPT VIEWING
 sourceView.Name = "sourceView"
 sourceView.Parent = Bar
 sourceView.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -331,7 +347,7 @@ sourceView.Size = UDim2.new(0, 681, 0, 441)
 sourceView.Visible = false
 sourceView.Draggable = true
 
--- skidded draggable script lol
+-- skidded draggable script lol (found on some roblox forum post)
 local UserInputService = game:GetService("UserInputService")
 
 local gui = sourceView
@@ -412,8 +428,7 @@ end)
 
 corners.CornerRadius = UDim.new(0.100000001, 0)
 corners.Parent = sourceView
--- END OF SCRIPT VIEW
-
+-- END OF SCRIPT VIEWING thing
 
 
 UIListLayout.Parent = Scripts
@@ -455,6 +470,7 @@ timeLabel.TextWrapped = true
 UICorner_8.CornerRadius = UDim.new(0.300000012, 0)
 UICorner_8.Parent = timeLabel
 
+-- This was supposed to be a log thing but is now the discord.
 log.Name = "log"
 log.Parent = Settingsbar
 log.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -469,6 +485,7 @@ log.TextSize = 18.000
 log.ClearTextOnFocus = false
 log.Active = false
 
+-- This thing was supposed to be discord but it ended up being the destroy button, too lazy to change it.
 discord.Name = "discord"
 discord.Parent = Settingsbar
 discord.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -539,9 +556,11 @@ UICorner_11.CornerRadius = UDim.new(1, 0)
 UICorner_11.Parent = status
 
 -- Scripts below
+-- These colors are just for my custom notification gui that is not used.
 colorRed = Color3.fromRGB(250, 50, 50)
 colorGreen = Color3.fromRGB(51, 191, 0)
 
+-- This notificatin thing is kinda bad so it's not being used.
 function notify(message, notifyTime, color)
     text.Text = message
     status.BackgroundColor3 = color
@@ -550,14 +569,7 @@ function notify(message, notifyTime, color)
     Notification.Visible = false
 end
 
-function loadScripts()
-    
-    
-    
-    
-    
-end
-
+-- The actual search thing, I used a youtube video for this part so it's kinda skidded but I did some modifications.
 function updateSearch()
     while wait(0.2) do
         canvSize = 0
@@ -581,16 +593,18 @@ function updateSearch()
                 end
             end
         end
-        Scripts.CanvasSize = UDim2.new(0, 0, canvSize*0.172, 0)
+        Scripts.CanvasSize = UDim2.new(0, 0, canvSize*0.172, 0) -- This part automatically sets the size of the scrolling frame that holds all script buttons.
     end
 end
 
+-- Just changing the time in the options menu, running asynchronus using the spawn() function.
 function timeTrack()
     while wait(0.2) do
         timeLabel.Text = os.date()
     end
 end
 
+-- I did write my own thing like this but then decided to use this one instead for some reason, it automatically fetches the whole username by only using the few first characters.
 function gplr(String)
 	local Found = {}
 	local strl = String:lower()
@@ -627,53 +641,28 @@ end
 
 
 
-
+-- Commands list, keep "cmds" in the bottom of this list to have it automatically show up when you type the commandPrefix in the search bar.
 commands = {"goto", "tp", "respawn", "re", "rejoin", "rj", "noclip", "clip", "ws", "walkspeed", "kill", "esp", "setspawn", "spawn"
 ,"cmds"}
+
+-- This part just adds the prefix to the command, suggestion thing doesn't work without this.
 for i, v in pairs(commands) do
     commands[i] = commandPrefix..commands[i]
 end
 
+-- Executing command
 function execCmd(cmd)
     local args = cmd:split(" ")
 
     -- goto/tp
     if args[1] == commandPrefix.."goto" or args[1] == commandPrefix.."tp" then
-        --[[local target = args[2]
-        for i,v in pairs(game.Players:GetPlayers()) do
-            if v.Name:lower():sub(1,#target) == target:lower() then
-   			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[v.Name].Character.HumanoidRootPart.Position)
-            end
-        end]]
         local plr = gplr(args[2])
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[plr[1].Name].Character.HumanoidRootPart.Position)
     end
 
 
     -- refresh
-    if args[1] == commandPrefix.."re" then
-        --[[game.Players.LocalPlayer.Character.Humanoid.Name = 1
-        local l = game.Players.LocalPlayer.Character["1"]:Clone()
-        l.Parent = game.Players.LocalPlayer.Character
-        l.Name = "Humanoid"
-        wait()
-        game.Players.LocalPlayer.Character["1"]:Destroy()
-        game.Workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character
-        game.Players.LocalPlayer.Character.Animate.Disabled = true
-        wait()
-        game.Players.LocalPlayer.Character.Animate.Disabled = false
-        game.Players.LocalPlayer.Character.Humanoid.DisplayDistanceType = "None"
-        wait()
-        Location = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-        wait()
-        local prt = Instance.new("Model", workspace);
-        Instance.new("Part", prt).Name="Torso";
-        Instance.new("Part", prt).Name="Head";
-        Instance.new("Humanoid", prt).Name="Humanoid";
-        game.Players.LocalPlayer.Character=prt
-        wait(6)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Location]]--
-        
+    if args[1] == commandPrefix.."re" then      
         LP = game:GetService('Players').LocalPlayer
 
         prev = LP.Character:WaitForChild('HumanoidRootPart').CFrame --holds old CFrame string
@@ -720,7 +709,7 @@ function execCmd(cmd)
     end
 
     if args[1] == commandPrefix.."kill" then
-        
+        -- Skidded kill, not mine
         local Player = gplr(args[2])
         if Player[1] then
             Player = Player[1]
@@ -790,7 +779,7 @@ function execCmd(cmd)
        
     end
 
-    if args[1] == commandPrefix.."esp" then
+    if args[1] == commandPrefix.."esp" then -- I did write this esp script, that's why it sucks lol
         local plr = gplr(args[2])
         local name = plr[1].Name
         plr = plr[1].Character
@@ -831,7 +820,7 @@ end
 
 
 
-
+-- The function that suggests commands.
 function suggestions()
     while wait(0.1) do
         if searchText ~= "" then
@@ -849,10 +838,14 @@ function suggestions()
     end
 end
 --notify(game.Players.LocalPlayer.Name, 3, colorGreen)
+
+-- Running functions async.
 spawn(updateSearch)
 spawn(timeTrack)
 spawn(suggestions)
 
+
+-- This part opens the gui once you press the button (default ;).
 game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
     if key == searchButton then
         wait(0.01)
@@ -861,6 +854,7 @@ game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
     end
 end)
 
+-- Executes command once enter is pressed.
 Searchbar.FocusLost:connect(function(enterPressed)
     if enterPressed then
         Bar.Visible = false
@@ -868,3 +862,6 @@ Searchbar.FocusLost:connect(function(enterPressed)
         Searchbar.Text = ""
     end
 end)
+
+
+-- End of script
