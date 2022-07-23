@@ -652,7 +652,7 @@ end
 
 
 -- Commands list, keep "cmds" in the bottom of this list to have it automatically show up when you type the commandPrefix in the search bar.
-commands = {"goto", "tp", "respawn", "re", "rejoin", "rj", "noclip", "clip", "ws", "walkspeed", "kill", "esp", "setspawn", "spawn"
+commands = {"goto", "tp", "respawn", "re", "rejoin", "rj", "noclip", "clip", "ws", "walkspeed", "kill", "esp", "setspawn", "spawn", "jumppower", "jp"
 ,"cmds"}
 
 -- This part just adds the prefix to the command, suggestion thing doesn't work without this.
@@ -824,6 +824,11 @@ function execCmd(cmd)
     -- spawn
     if args[1] == commandPrefix.."spawn" then
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(spawnPoint)
+    end
+
+    -- jumppower/jp
+    if args[1] == commandPrefix.."jumppower" or args[1] == commandPrefix.."jp" then
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = args[2]
     end
 end
 
