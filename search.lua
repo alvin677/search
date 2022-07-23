@@ -32,10 +32,18 @@ pcall(function()
     local StarterGui = game:GetService("StarterGui")
     
     StarterGui:SetCore("SendNotification", {
-            Title = "Press "..searchButton.." to use. Type "..commandPrefix.." in bar to use commands.";
-            Text = "Search Script by Cedric#0591 and Jonnygaming Tv#2650";
+        Title = "Loading";
+        Text = "Give it a few seconds before trying to open gui.";
+        
+    })
+    
+    StarterGui:SetCore("SendNotification", {
+            Title = "Search Script by Cedric#0591";
+            Text = "Press "..searchButton.." to use. Type "..commandPrefix.." in bar to use commands.";
+            
         })
-    end)
+    
+end)
 --
 
 
