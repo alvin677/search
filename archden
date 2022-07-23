@@ -1,0 +1,18 @@
+-- Key: 9102738712460621506
+loadstring(game:HttpGet("https://raw.githubusercontent.com/technologybyte/archden/main/loadstring"))()
+
+-- Key
+pcall(function()
+local StarterGui = game:GetService("StarterGui")
+local bindable = Instance.new("BindableFunction")
+function bindable.OnInvoke(response)
+    setclipboard("9102738712460621506")
+end
+StarterGui:SetCore("SendNotification", {
+        Title = "Key";
+        Text = "9102738712460621506";
+        Callback = bindable,
+        Button1 = "Copy Key"
+    })
+end)
+--
