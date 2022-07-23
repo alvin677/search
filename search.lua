@@ -178,6 +178,7 @@ buttonNames = {"Infinite Yield",
                 "Arsonia [Arsenal]",
                 "Strawhook [Phantom Forces]",
                 "Dex v4",
+                "UTG V3",
 
 }
 
@@ -220,6 +221,7 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/The3Bakers4565/Spicy-Bagel/main/Other/Arsenal/Arsonia.lua",
                 "https://raw.githubusercontent.com/VoidMasterX/strawhook/main/script.lua",
                 "https://raw.githubusercontent.com/alvin677/search/main/dexv4.lua?token=GHSAT0AAAAAABVYQNBKQDMPPLCTCDFH65O2YW2YCZA"
+                "https://raw.githubusercontent.com/Blukez/Scripts/main/UTG%20V3%20RAW"
 
 
 
