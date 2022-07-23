@@ -299,6 +299,7 @@ end
 local scriptAmount = game:HttpGet("https://rs.jonhosting.com/rblx/a")
 scriptAmount += 1
 for i = 0, scriptAmount do
+    pcall(function()
     local scriptName = game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".txt")
     local temp = Instance.new("TextButton")
     local temp2 = Instance.new("UICorner")
@@ -343,6 +344,7 @@ for i = 0, scriptAmount do
 
     source2.CornerRadius = UDim.new(0.300000012, 0)
     source2.Parent = source
+    end)
 end
 
 
