@@ -160,7 +160,7 @@ buttonNames = {"Infinite Yield",
                 "LostPoint",
                 "Nullware Hub V3",
                 "Pendulum Hub",
-                "Archden (9102738712460621506)",
+                "Archden",
                 "Pineapple Hub",
                 "Auratus X",
                 "Vhub",
@@ -187,6 +187,11 @@ buttonNames = {"Infinite Yield",
                 "Strawhook [Phantom Forces]",
                 "Dex v4",
                 "UTG V3",
+                "FE Spiderman",
+                "Owl Hub",
+                "V.G Hub",
+                "Soggy Hub",
+                "Yokes Hub",
 
 }
 
@@ -203,7 +208,7 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/JunglePush/LostPoint/main/LostPointScript",
                 "https://raw.githubusercontent.com/alvin677/search/main/Nullware%20V3.lua",
                 "https://raw.githubusercontent.com/Tescalus/Pendulum-Hubs-Source/main/Pendulum%20Hub%20V5.lua",
-                "https://raw.githubusercontent.com/technologybyte/archden/main/loadstring",
+                "https://raw.githubusercontent.com/alvin677/search/main/archden",
                 "https://raw.githubusercontent.com/alvin677/search/main/pineapple%20radio.lua",
                 "https://raw.githubusercontent.com/RealMrQuacks/AuratusX/master/Load",
                 "https://raw.githubusercontent.com/itsyaboivincentt5315/script/main/VHub.txt",
@@ -229,7 +234,12 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/The3Bakers4565/Spicy-Bagel/main/Other/Arsenal/Arsonia.lua",
                 "https://raw.githubusercontent.com/VoidMasterX/strawhook/main/script.lua",
                 "https://raw.githubusercontent.com/alvin677/search/main/dexv4.lua?token=GHSAT0AAAAAABVYQNBKQDMPPLCTCDFH65O2YW2YCZA",
-                "https://raw.githubusercontent.com/Blukez/Scripts/main/UTG%20V3%20RAW"
+                "https://raw.githubusercontent.com/Blukez/Scripts/main/UTG%20V3%20RAW",
+                "https://raw.githubusercontent.com/alvin677/search/main/message%20(4).txt",
+                "https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt",
+                "https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub",
+                "https://soggyhubv2.vercel.app",
+                "https://api.upload.systems/pastes/a6kcN3OL4pSQ/raw",
 
 
 
