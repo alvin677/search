@@ -153,7 +153,7 @@ buttonNames = {"Infinite Yield",
                 "Orca",
                 "DomainX",
                 "xxHub",
-                "Jon (check console for games (F9)",
+                "Jon (check console for games (F9) very outdated)",
                 "AimHot V8",
                 "Hacker Animation [R6, FE]",
                 "HotdogMorph V6",
@@ -172,7 +172,7 @@ buttonNames = {"Infinite Yield",
                 "SimpleSpy Remotespy",
                 "Zyrex [Arsenal, KAT, Project Lazarus, BIG Paintball, Phantom Forces]",
                 "Revokeds script hub",
-                "Vestra Hub (.gg/rBwZrgvRH3)",
+                "Vestra Hub (.gg/rBwZrgvRH3 for key)",
                 "Raven Hub",
                 "Dark Hub [Arsenal, Bed Wars, Strucid, Bad Business, Big Paintball, Project Bronze, Phantom Forces, Project Lazarus, Raised By Floppa, Weaponry]",
                 "RTX",
@@ -192,6 +192,8 @@ buttonNames = {"Infinite Yield",
                 "V.G Hub",
                 "Soggy Hub",
                 "Yokes Hub",
+                "simplity",
+                "Proxima Hub [Tapping Legends X, Rebirth Champions X, Anime Journey, Ninja Legends, Gun Simulator, Legends Of Speed, Destruction Simulator, Saber Simulator, Tower Of Hell, Lucky Block, Horrific Housing, Anime Sword Simulator, Kick Off, Givenchy Beauty House, Tommy Play, Gucci Town, Broken Bones Simulator, Tate McRae Concert Experience, Samsumg Superstar Galaxy, Spotify Island, Logitech Song Breaker Awards, Alo Sanctuary, Batland, Clicker Madness, Roblox Pro League]"
 
 }
 
@@ -240,6 +242,8 @@ buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/
                 "https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub",
                 "https://soggyhubv2.vercel.app",
                 "https://api.upload.systems/pastes/a6kcN3OL4pSQ/raw",
+                "https://raw.githubusercontent.com/HeyGyt/simplit/main/main",
+                "https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua",
 
 
 
