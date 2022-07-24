@@ -268,13 +268,15 @@ for i = 1, #buttonNames do
     local temp2 = Instance.new("UICorner")
     local source = Instance.new("TextButton")
     local source2 = Instance.new("UICorner")
+    local fullname = Instance.new("TextButton")
+    local fullname2 = Instance.new("UICorner")
 
     temp.Name = "script"
     temp.Parent = Scripts
     temp.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     temp.BackgroundTransparency = 0.500
     temp.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
-    temp.Size = UDim2.new(0, 290, 0, 29)
+    temp.Size = UDim2.new(0, 247, 0, 29)
     temp.Font = Enum.Font.SourceSans
     temp.Text = "≡ "..buttonNames[i]
     temp.TextColor3 = Color3.fromRGB(220, 220, 220)
@@ -294,7 +296,7 @@ for i = 1, #buttonNames do
     source.Parent = temp
     source.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     source.BackgroundTransparency = 0.500
-    source.Position = UDim2.new(1.01034486, 0, 0, 0)
+    source.Position = UDim2.new(1.18443394, 0, 0, 0)
     source.Size = UDim2.new(0, 37, 0, 29)
     source.Font = Enum.Font.SourceSans
     source.Text = "📜"
@@ -307,6 +309,24 @@ for i = 1, #buttonNames do
 
     source2.CornerRadius = UDim.new(0.300000012, 0)
     source2.Parent = source
+
+    fullname.Name = "fullname"
+    fullname.Parent = temp
+    fullname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    fullname.BackgroundTransparency = 0.500
+    fullname.Position = UDim2.new(1.02249062, 0, 0, 0)
+    fullname.Size = UDim2.new(0, 37, 0, 29)
+    fullname.Font = Enum.Font.SourceSans
+    fullname.Text = "💬"
+    fullname.TextColor3 = Color3.fromRGB(0, 0, 0)
+    fullname.TextSize = 14.000
+    fullname.MouseButton1Click:connect(function()
+        sourceView.Visible = true
+        code.Text = buttonNames[i];
+    end)
+
+    fullname2.CornerRadius = UDim.new(0.300000012, 0)
+    fullname2.Parent = fullname
 end
 
 -- Scripts from website (the database, community uploaded scripts)
@@ -319,13 +339,15 @@ for i = 0, scriptAmount do
     local temp2 = Instance.new("UICorner")
     local source = Instance.new("TextButton")
     local source2 = Instance.new("UICorner")
+    local fullname = Instance.new("TextButton")
+    local fullname2 = Instance.new("UICorner")
 
     temp.Name = "script"
     temp.Parent = Scripts
     temp.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     temp.BackgroundTransparency = 0.500
     temp.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
-    temp.Size = UDim2.new(0, 290, 0, 29)
+    temp.Size = UDim2.new(0, 247, 0, 29)
     temp.Font = Enum.Font.SourceSans
     temp.Text = "⚠️ "..scriptName
     temp.TextColor3 = Color3.fromRGB(220, 220, 220)
@@ -345,7 +367,7 @@ for i = 0, scriptAmount do
     source.Parent = temp
     source.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     source.BackgroundTransparency = 0.500
-    source.Position = UDim2.new(1.01034486, 0, 0, 0)
+    source.Position = UDim2.new(1.18443394, 0, 0, 0)
     source.Size = UDim2.new(0, 37, 0, 29)
     source.Font = Enum.Font.SourceSans
     source.Text = "📜"
@@ -358,6 +380,24 @@ for i = 0, scriptAmount do
 
     source2.CornerRadius = UDim.new(0.300000012, 0)
     source2.Parent = source
+
+    fullname.Name = "fullname"
+    fullname.Parent = temp
+    fullname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    fullname.BackgroundTransparency = 0.500
+    fullname.Position = UDim2.new(1.02249062, 0, 0, 0)
+    fullname.Size = UDim2.new(0, 37, 0, 29)
+    fullname.Font = Enum.Font.SourceSans
+    fullname.Text = "💬"
+    fullname.TextColor3 = Color3.fromRGB(0, 0, 0)
+    fullname.TextSize = 14.000
+    fullname.MouseButton1Click:connect(function()
+        sourceView.Visible = true
+        code.Text = scriptName;
+    end)
+
+    fullname2.CornerRadius = UDim.new(0.300000012, 0)
+    fullname2.Parent = fullname
     end)
 end
 
