@@ -33,7 +33,7 @@ pcall(function()
     
     StarterGui:SetCore("SendNotification", {
         Title = "Loading";
-        Text = "Give it a few seconds before trying to open gui.";
+        Text = "Wait about 5-10 seconds before trying to open gui.";
         
     })
     
