@@ -738,13 +738,13 @@ function execCmd(cmd)
 
     -- light
     if args[1] == commandPrefix.."light" then
-        local lightSource = Instance.new("SpotLight")
-        lightSource.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+        _G.lightSource = Instance.new("SpotLight")
+        _G.lightSource.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
     end
 
     -- unlight
     if args[1] == commandPrefix.."unlight" then
-        lightSource:Destroy()
+        _G.lightSource:Destroy()
     end
 end
 
