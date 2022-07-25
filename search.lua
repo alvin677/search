@@ -27,26 +27,16 @@ commandPrefix = _G.commandPrefix
 local spawnPoint = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
 
 
--- Intro thing to let the user know the script executed
+-- Intro thing to let the user know the script executed (it's very nice if you don't claim the script to be yours)
 pcall(function()
     local StarterGui = game:GetService("StarterGui")
-    
-    StarterGui:SetCore("SendNotification", {
-        Title = "Loading";
-        Text = "Wait about 5-10 seconds before trying to open gui.";
-        
-    })
-    
     StarterGui:SetCore("SendNotification", {
             Title = "Search Script by Cedric#0591";
             Text = "Press "..searchButton.." to use. Type "..commandPrefix.." in bar to use commands.";
             
         })
-    
 end)
 --
-
-
 
 -- Creating most Instances
 local Search = Instance.new("ScreenGui")
@@ -261,147 +251,6 @@ Scripts.Position = UDim2.new(0.0174326878, 0, 0.0388888903, 0)
 Scripts.Size = UDim2.new(0, 337, 0, 165)
 Scripts.CanvasSize = UDim2.new(0, 0, #buttonNames*0.172, 0)
 Scripts.ScrollBarThickness = 2
-
--- Scripts from this file (the lists above)
-for i = 1, #buttonNames do
-    local temp = Instance.new("TextButton")
-    local temp2 = Instance.new("UICorner")
-    local source = Instance.new("TextButton")
-    local source2 = Instance.new("UICorner")
-    local fullname = Instance.new("TextButton")
-    local fullname2 = Instance.new("UICorner")
-
-    temp.Name = "script"
-    temp.Parent = Scripts
-    temp.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    temp.BackgroundTransparency = 0.500
-    temp.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
-    temp.Size = UDim2.new(0, 247, 0, 29)
-    temp.Font = Enum.Font.SourceSans
-    temp.Text = "≡ "..buttonNames[i]
-    temp.TextColor3 = Color3.fromRGB(220, 220, 220)
-    temp.TextSize = 14.000
-    temp.TextScaled = true
-    temp.MouseButton1Click:connect(function()
-        Searchbar.Text = ""
-        Bar.Visible = false
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/alvin677/search/main/prompt.lua",true))()
-        loadstring(game:HttpGet((buttonScripts[i]),true))()
-    end)
-
-    temp2.CornerRadius = UDim.new(0.300000012, 0)
-    temp2.Parent = temp
-
-    source.Name = "source"
-    source.Parent = temp
-    source.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    source.BackgroundTransparency = 0.500
-    source.Position = UDim2.new(1.18443394, 0, 0, 0)
-    source.Size = UDim2.new(0, 37, 0, 29)
-    source.Font = Enum.Font.SourceSans
-    source.Text = "📜"
-    source.TextColor3 = Color3.fromRGB(0, 0, 0)
-    source.TextSize = 14.000
-    source.MouseButton1Click:connect(function()
-        sourceView.Visible = true
-        code.Text = buttonScripts[i];
-    end)
-
-    source2.CornerRadius = UDim.new(0.300000012, 0)
-    source2.Parent = source
-
-    fullname.Name = "fullname"
-    fullname.Parent = temp
-    fullname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    fullname.BackgroundTransparency = 0.500
-    fullname.Position = UDim2.new(1.02249062, 0, 0, 0)
-    fullname.Size = UDim2.new(0, 37, 0, 29)
-    fullname.Font = Enum.Font.SourceSans
-    fullname.Text = "💬"
-    fullname.TextColor3 = Color3.fromRGB(0, 0, 0)
-    fullname.TextSize = 14.000
-    fullname.MouseButton1Click:connect(function()
-        sourceView.Visible = true
-        code.Text = buttonNames[i];
-    end)
-
-    fullname2.CornerRadius = UDim.new(0.300000012, 0)
-    fullname2.Parent = fullname
-end
-
--- Scripts from website (the database, community uploaded scripts)
-local scriptAmount = game:HttpGet("https://rs.jonhosting.com/rblx/a")
-scriptAmount += 1
-for i = 0, scriptAmount do
-    pcall(function()
-    local scriptName = game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".txt")
-    local temp = Instance.new("TextButton")
-    local temp2 = Instance.new("UICorner")
-    local source = Instance.new("TextButton")
-    local source2 = Instance.new("UICorner")
-    local fullname = Instance.new("TextButton")
-    local fullname2 = Instance.new("UICorner")
-
-    temp.Name = "script"
-    temp.Parent = Scripts
-    temp.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    temp.BackgroundTransparency = 0.500
-    temp.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
-    temp.Size = UDim2.new(0, 247, 0, 29)
-    temp.Font = Enum.Font.SourceSans
-    temp.Text = "⚠️ "..scriptName
-    temp.TextColor3 = Color3.fromRGB(220, 220, 220)
-    temp.TextSize = 14.000
-    temp.TextScaled = true
-    temp.MouseButton1Click:connect(function()
-        Searchbar.Text = ""
-        Bar.Visible = false
-        print("executing "..game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".lua"))
-        loadstring(game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".lua",true))()
-    end)
-
-    temp2.CornerRadius = UDim.new(0.300000012, 0)
-    temp2.Parent = temp
-
-    source.Name = "source"
-    source.Parent = temp
-    source.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    source.BackgroundTransparency = 0.500
-    source.Position = UDim2.new(1.18443394, 0, 0, 0)
-    source.Size = UDim2.new(0, 37, 0, 29)
-    source.Font = Enum.Font.SourceSans
-    source.Text = "📜"
-    source.TextColor3 = Color3.fromRGB(0, 0, 0)
-    source.TextSize = 14.000
-    source.MouseButton1Click:connect(function()
-        sourceView.Visible = true
-        code.Text = game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".lua");
-    end)
-
-    source2.CornerRadius = UDim.new(0.300000012, 0)
-    source2.Parent = source
-
-    fullname.Name = "fullname"
-    fullname.Parent = temp
-    fullname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    fullname.BackgroundTransparency = 0.500
-    fullname.Position = UDim2.new(1.02249062, 0, 0, 0)
-    fullname.Size = UDim2.new(0, 37, 0, 29)
-    fullname.Font = Enum.Font.SourceSans
-    fullname.Text = "💬"
-    fullname.TextColor3 = Color3.fromRGB(0, 0, 0)
-    fullname.TextSize = 14.000
-    fullname.MouseButton1Click:connect(function()
-        sourceView.Visible = true
-        code.Text = scriptName;
-    end)
-
-    fullname2.CornerRadius = UDim.new(0.300000012, 0)
-    fullname2.Parent = fullname
-    end)
-end
-
-
 
 -- SCRIPT VIEWING
 sourceView.Name = "sourceView"
@@ -708,7 +557,7 @@ end
 
 
 -- Commands list, keep "cmds" in the bottom of this list to have it automatically show up when you type the commandPrefix in the search bar.
-commands = {"goto", "tp", "respawn", "re", "rejoin", "rj", "noclip", "clip", "ws", "walkspeed", "kill", "esp", "setspawn", "spawn", "jumppower", "jp"
+commands = {"goto", "tp", "respawn", "re", "rejoin", "rj", "noclip", "clip", "ws", "walkspeed", "kill", "esp", "setspawn", "spawn", "jumppower", "jp", "light", "unlight"
 ,"cmds"}
 
 -- This part just adds the prefix to the command, suggestion thing doesn't work without this.
@@ -886,6 +735,17 @@ function execCmd(cmd)
     if args[1] == commandPrefix.."jumppower" or args[1] == commandPrefix.."jp" then
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = args[2]
     end
+
+    -- light
+    if args[1] == commandPrefix.."light" then
+        local lightSource = Instance.new("SpotLight")
+        lightSource.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+    end
+
+    -- unlight
+    if args[1] == commandPrefix.."unlight" then
+        lightSource:Destroy()
+    end
 end
 
 
@@ -935,4 +795,150 @@ Searchbar.FocusLost:connect(function(enterPressed)
 end)
 
 
--- End of script
+-- Below is just the script loading
+
+
+
+-- Scripts from this file (the lists above)
+for i = 1, #buttonNames do
+    local temp = Instance.new("TextButton")
+    local temp2 = Instance.new("UICorner")
+    local source = Instance.new("TextButton")
+    local source2 = Instance.new("UICorner")
+    local fullname = Instance.new("TextButton")
+    local fullname2 = Instance.new("UICorner")
+
+    temp.Name = "script"
+    temp.Parent = Scripts
+    temp.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+    temp.BackgroundTransparency = 0.500
+    temp.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
+    temp.Size = UDim2.new(0, 247, 0, 29)
+    temp.Font = Enum.Font.SourceSans
+    temp.Text = "≡ "..buttonNames[i]
+    temp.TextColor3 = Color3.fromRGB(220, 220, 220)
+    temp.TextSize = 14.000
+    temp.TextScaled = true
+    temp.MouseButton1Click:connect(function()
+        Searchbar.Text = ""
+        Bar.Visible = false
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/alvin677/search/main/prompt.lua",true))()
+        loadstring(game:HttpGet((buttonScripts[i]),true))()
+    end)
+
+    temp2.CornerRadius = UDim.new(0.300000012, 0)
+    temp2.Parent = temp
+
+    source.Name = "source"
+    source.Parent = temp
+    source.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    source.BackgroundTransparency = 0.500
+    source.Position = UDim2.new(1.18443394, 0, 0, 0)
+    source.Size = UDim2.new(0, 37, 0, 29)
+    source.Font = Enum.Font.SourceSans
+    source.Text = "📜"
+    source.TextColor3 = Color3.fromRGB(0, 0, 0)
+    source.TextSize = 14.000
+    source.MouseButton1Click:connect(function()
+        sourceView.Visible = true
+        code.Text = buttonScripts[i];
+    end)
+
+    source2.CornerRadius = UDim.new(0.300000012, 0)
+    source2.Parent = source
+
+    fullname.Name = "fullname"
+    fullname.Parent = temp
+    fullname.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    fullname.BackgroundTransparency = 0.500
+    fullname.Position = UDim2.new(1.02249062, 0, 0, 0)
+    fullname.Size = UDim2.new(0, 37, 0, 29)
+    fullname.Font = Enum.Font.SourceSans
+    fullname.Text = "💬"
+    fullname.TextColor3 = Color3.fromRGB(0, 0, 0)
+    fullname.TextSize = 14.000
+    fullname.MouseButton1Click:connect(function()
+        sourceView.Visible = true
+        code.Text = buttonNames[i];
+    end)
+
+    fullname2.CornerRadius = UDim.new(0.300000012, 0)
+    fullname2.Parent = fullname
+end
+
+-- Scripts from website (the database, community uploaded scripts)
+local scriptAmount = game:HttpGet("https://rs.jonhosting.com/rblx/a")
+scriptAmount += 1
+for i = 0, scriptAmount do
+    pcall(function()
+    local scriptName = game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".txt")
+    local temp = Instance.new("TextButton")
+    local temp2 = Instance.new("UICorner")
+    local source = Instance.new("TextButton")
+    local source2 = Instance.new("UICorner")
+    local fullname = Instance.new("TextButton")
+    local fullname2 = Instance.new("UICorner")
+
+    temp.Name = "script"
+    temp.Parent = Scripts
+    temp.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+    temp.BackgroundTransparency = 0.500
+    temp.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
+    temp.Size = UDim2.new(0, 247, 0, 29)
+    temp.Font = Enum.Font.SourceSans
+    -- Is script verified or not?
+    if game:HttpGet('https://rs.jonhosting.com/ver/'..i..'.txt') == 1 then
+        temp.Text = "✔️ "..scriptName
+    else
+        temp.Text = "⚠️ "..scriptName
+    end
+    temp.TextColor3 = Color3.fromRGB(220, 220, 220)
+    temp.TextSize = 14.000
+    temp.TextScaled = true
+    temp.MouseButton1Click:connect(function()
+        Searchbar.Text = ""
+        Bar.Visible = false
+        print("executing "..game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".lua"))
+        loadstring(game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".lua",true))()
+    end)
+
+    temp2.CornerRadius = UDim.new(0.300000012, 0)
+    temp2.Parent = temp
+
+    source.Name = "source"
+    source.Parent = temp
+    source.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    source.BackgroundTransparency = 0.500
+    source.Position = UDim2.new(1.18443394, 0, 0, 0)
+    source.Size = UDim2.new(0, 37, 0, 29)
+    source.Font = Enum.Font.SourceSans
+    source.Text = "📜"
+    source.TextColor3 = Color3.fromRGB(0, 0, 0)
+    source.TextSize = 14.000
+    source.MouseButton1Click:connect(function()
+        sourceView.Visible = true
+        code.Text = game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".lua");
+    end)
+
+    source2.CornerRadius = UDim.new(0.300000012, 0)
+    source2.Parent = source
+
+    fullname.Name = "fullname"
+    fullname.Parent = temp
+    fullname.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    fullname.BackgroundTransparency = 0.500
+    fullname.Position = UDim2.new(1.02249062, 0, 0, 0)
+    fullname.Size = UDim2.new(0, 37, 0, 29)
+    fullname.Font = Enum.Font.SourceSans
+    fullname.Text = "💬"
+    fullname.TextColor3 = Color3.fromRGB(0, 0, 0)
+    fullname.TextSize = 14.000
+    fullname.MouseButton1Click:connect(function()
+        sourceView.Visible = true
+        code.Text = scriptName;
+    end)
+
+    fullname2.CornerRadius = UDim.new(0.300000012, 0)
+    fullname2.Parent = fullname
+    end)
+end
