@@ -870,6 +870,7 @@ end
 local scriptAmount = game:HttpGet("https://rs.jonhosting.com/rblx/a")
 scriptAmount += 1
 for i = 0, scriptAmount do
+    local i = scriptAmount - i
     pcall(function()
     local scriptName = game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".txt")
     local temp = Instance.new("TextButton")
@@ -887,10 +888,11 @@ for i = 0, scriptAmount do
     temp.Size = UDim2.new(0, 247, 0, 29)
     temp.Font = Enum.Font.SourceSans
     -- Is script verified or not?
-    if game:HttpGet('https://rs.jonhosting.com/ver/'..i..'.txt') == 1 then
-        temp.Text = "✔️ "..scriptName
+    local ver = game:HttpGet('https://rs.jonhosting.com/ver/'..i..".txt")
+    if ver == "1" then
+        temp.Text = i.." ✔️ "..scriptName
     else
-        temp.Text = "⚠️ "..scriptName
+        temp.Text = i.." ⚠️ "..scriptName
     end
     temp.TextColor3 = Color3.fromRGB(220, 220, 220)
     temp.TextSize = 14.000
@@ -898,7 +900,6 @@ for i = 0, scriptAmount do
     temp.MouseButton1Click:connect(function()
         Searchbar.Text = ""
         Bar.Visible = false
-        print("executing "..game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".lua"))
         loadstring(game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".lua",true))()
     end)
 
