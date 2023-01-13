@@ -871,7 +871,7 @@ for i = 0, scriptAmount do
     source.TextSize = 14.000
     source.MouseButton1Click:connect(function()
         sourceView.Visible = true
-        code.Text = onlineScripts[i][2];
+        code.Text = string.sub(onlineScripts[i][2],499);
     end)
 
     source2.CornerRadius = UDim.new(0.300000012, 0)
