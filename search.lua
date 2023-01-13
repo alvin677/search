@@ -137,105 +137,53 @@ ScriptsFrame.Position = UDim2.new(0, 0, -5.31428576, 0)
 ScriptsFrame.Size = UDim2.new(0, 350, 0, 180)
 ScriptsFrame.Visible = false
 
--- A list of all names for each script
-buttonNames = {"Infinite Yield",
-                "blueBerry X",
-                "Orca",
-                "DomainX",
-                "xxHub",
-                "Jon (check console for games (F9) very outdated)",
-                "AimHot V8",
-                "Hacker Animation [R6, FE]",
-                "HotdogMorph V6",
-                "LostPoint",
-                "Nullware Hub V3",
-                "Pendulum Hub",
-                "Archden",
-                "Pineapple Hub",
-                "Auratus X",
-                "Vhub",
-                "Coco Hub",
-                "Ez Hub",
-                "CMD-X",
-                "Kadium Hub",
-                "Walk on walls",
-                "SimpleSpy Remotespy",
-                "Zyrex [Arsenal, KAT, Project Lazarus, BIG Paintball, Phantom Forces]",
-                "Revokeds script hub",
-                "Vestra Hub (.gg/rBwZrgvRH3 for key)",
-                "Raven Hub",
-                "Dark Hub [Arsenal, Bed Wars, Strucid, Bad Business, Big Paintball, Project Bronze, Phantom Forces, Project Lazarus, Raised By Floppa, Weaponry]",
-                "RTX",
-                "Fates admin",
-                "Boombox Grippos UI",
-                "Boombox Reaper V2",
-                "Boombox Free Hubs",
-                "Solaris Hub [Phantom Forces, Arsenal, Bad Business, Sonic Speed Simulator, SCP 3008]",
-                "Universal FE",
-                "Sirius",
-                "Arsonia [Arsenal]",
-                "Strawhook [Phantom Forces]",
-                "Dex v4",
-                "UTG V3",
-                "FE Spiderman",
-                "Owl Hub",
-                "V.G Hub",
-                "Soggy Hub",
-                "Yokes Hub",
-                "simplity",
-                "Proxima Hub [Tapping Legends X, Rebirth Champions X, Anime Journey, Ninja Legends, Gun Simulator, Legends Of Speed, Destruction Simulator, Saber Simulator, Tower Of Hell, Lucky Block, Horrific Housing, Anime Sword Simulator, Kick Off, Givenchy Beauty House, Tommy Play, Gucci Town, Broken Bones Simulator, Tate McRae Concert Experience, Samsumg Superstar Galaxy, Spotify Island, Logitech Song Breaker Awards, Alo Sanctuary, Batland, Clicker Madness, Roblox Pro League]"
-
-}
-
--- The actual script to all names
-buttonScripts = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
-                "https://raw.githubusercontent.com/alvin677/blueBerry-X/main/source",
-                "https://raw.githubusercontent.com/richie0866/orca/master/public/latest.lua",
-                "https://raw.githubusercontent.com/shlexware/DomainX/main/source",
-                "https://pastebin.com/raw/YVE4njap",
-                "https://raw.githubusercontent.com/alvin677/search/main/Jon.lua",
-                "https://raw.githubusercontent.com/Herrtt/AimHot-v8/master/Main.lua",
-                "https://pastebin.com/raw/3HEkCX6i",
-                "https://raw.githubusercontent.com/alvin677/search/main/HotdogMorph%20V6.lua",
-                "https://raw.githubusercontent.com/JunglePush/LostPoint/main/LostPointScript",
-                "https://raw.githubusercontent.com/alvin677/search/main/Nullware%20V3.lua",
-                "https://raw.githubusercontent.com/Tescalus/Pendulum-Hubs-Source/main/Pendulum%20Hub%20V5.lua",
-                "https://raw.githubusercontent.com/alvin677/search/main/archden",
-                "https://raw.githubusercontent.com/alvin677/search/main/pineapple%20radio.lua",
-                "https://raw.githubusercontent.com/RealMrQuacks/AuratusX/master/Load",
-                "https://raw.githubusercontent.com/itsyaboivincentt5315/script/main/VHub.txt",
-                "https://gitlab.com/cococc/cocohub/-/raw/master/CocoLoader",
-                "https://raw.githubusercontent.com/debug420/Ez-Industries-Launcher-Data/master/Launcher.lua",
-                "https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source",
-                "https://gist.githubusercontent.com/thekaisbest/989151a72045eab9ad4bdb171099bdc9/raw/16faf752fb731131aea9ed74af3a394514d2883d/KadiumHub",
-                "https://paste.ee/r/SOTCP",
-                "https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua",
-                "https://raw.githubusercontent.com/NotZyrex/Zyrex-Hub/main/Main.lua",
-                "https://raw.githubusercontent.com/R3v0ked/Scripts/main/Script%20loader%20(dev%20purpose",
-                "https://script.vestrahub.com",
-                "https://raw.githubusercontent.com/tyreltrijo/raven/main/raven",
-                "https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/Init",
-                "https://pastebin.com/raw/Bkf0BJb3",
-                "https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua",
-                "https://raw.githubusercontent.com/alvin677/search/main/grippos",
-                "https://raw.githubusercontent.com/alvin677/search/main/reaperV2",
-                "https://raw.githubusercontent.com/alvin677/search/main/boomboxfree",
-                "https://solarishub.net/script.lua",
-                "https://raw.githubusercontent.com/Dvrknvss/UniversalFEScriptHub/main/Script",
-                "https://raw.githubusercontent.com/shlexware/Sirius/request/Loader",
-                "https://raw.githubusercontent.com/The3Bakers4565/Spicy-Bagel/main/Other/Arsenal/Arsonia.lua",
-                "https://raw.githubusercontent.com/VoidMasterX/strawhook/main/script.lua",
-                "https://raw.githubusercontent.com/alvin677/search/main/dexv4.lua?token=GHSAT0AAAAAABVYQNBKQDMPPLCTCDFH65O2YW2YCZA",
-                "https://raw.githubusercontent.com/Blukez/Scripts/main/UTG%20V3%20RAW",
-                "https://raw.githubusercontent.com/alvin677/search/main/message%20(4).txt",
-                "https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt",
-                "https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub",
-                "https://soggyhubv2.vercel.app",
-                "https://api.upload.systems/pastes/a6kcN3OL4pSQ/raw",
-                "https://raw.githubusercontent.com/HeyGyt/simplit/main/main",
-                "https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua",
-
-
+-- A list of all scripts stored directly into this script. Feel free to remove outdated and add custom ones.
+storedScripts = {{"Infinite Yield", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"},
+                {"blueBerry X", "https://raw.githubusercontent.com/alvin677/blueBerry-X/main/source"},
+                {"Orca", "https://raw.githubusercontent.com/richie0866/orca/master/public/latest.lua"},
+                {"DomainX", "https://raw.githubusercontent.com/shlexware/DomainX/main/source"},
+                {"xxHub", "https://pastebin.com/raw/YVE4njap"},
+                {"Jon (check console for games (F9) very outdated)", "https://raw.githubusercontent.com/alvin677/search/main/Jon.lua"},
+                {"AimHot V8", "https://raw.githubusercontent.com/Herrtt/AimHot-v8/master/Main.lua"},
+                {"Hacker Animation [R6, FE]", "https://pastebin.com/raw/3HEkCX6i"},
+                {"HotdogMorph V6", "https://raw.githubusercontent.com/alvin677/search/main/HotdogMorph%20V6.lua"},
+                {"LostPoint", "https://raw.githubusercontent.com/JunglePush/LostPoint/main/LostPointScript"},
+                {"Nullware Hub V3", "https://raw.githubusercontent.com/alvin677/search/main/Nullware%20V3.lua"},
+                {"Pendulum Hub", "https://raw.githubusercontent.com/Tescalus/Pendulum-Hubs-Source/main/Pendulum%20Hub%20V5.lua"},
+                {"Archden", "https://raw.githubusercontent.com/alvin677/search/main/archden"},
+                {"Pineapple Hub", "https://raw.githubusercontent.com/alvin677/search/main/pineapple%20radio.lua"},
+                {"Auratus X", "https://raw.githubusercontent.com/RealMrQuacks/AuratusX/master/Load"},
+                {"Vhub", "https://raw.githubusercontent.com/itsyaboivincentt5315/script/main/VHub.txt"},
+                {"Coco Hub", "https://gitlab.com/cococc/cocohub/-/raw/master/CocoLoader"},
+                {"Ez Hub", "https://raw.githubusercontent.com/debug420/Ez-Industries-Launcher-Data/master/Launcher.lua"},
+                {"CMD-X", "https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source"},
+                {"Kadium Hub", "https://gist.githubusercontent.com/thekaisbest/989151a72045eab9ad4bdb171099bdc9/raw/16faf752fb731131aea9ed74af3a394514d2883d/KadiumHub"},
+                {"Walk on walls", "https://paste.ee/r/SOTCP"},
+                {"SimpleSpy Remotespy", "https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua"},
+                {"Zyrex [Arsenal, KAT, Project Lazarus, BIG Paintball, Phantom Forces]", "https://raw.githubusercontent.com/NotZyrex/Zyrex-Hub/main/Main.lua"},
+                {"Revokeds script hub", "https://raw.githubusercontent.com/R3v0ked/Scripts/main/Script%20loader%20(dev%20purpose"},
+                {"Vestra Hub (.gg/rBwZrgvRH3 for key)", "https://script.vestrahub.com"},
+                {"Raven Hub", "https://raw.githubusercontent.com/tyreltrijo/raven/main/raven"},
+                {"Dark Hub [Arsenal, Bed Wars, Strucid, Bad Business, Big Paintball, Project Bronze, Phantom Forces, Project Lazarus, Raised By Floppa, Weaponry]", "https://raw.githubusercontent.com/RandomAdamYT/DarkHub/master/Init"},
+                {"RTX", "https://pastebin.com/raw/Bkf0BJb3"},
+                {"Fates admin", "https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"},
+                {"Boombox Grippos UI", "https://raw.githubusercontent.com/alvin677/search/main/grippos"},
+                {"Boombox Reaper V2", "https://raw.githubusercontent.com/alvin677/search/main/reaperV2"},
+                {"Boombox Free Hubs", "https://raw.githubusercontent.com/alvin677/search/main/boomboxfree"},
+                {"Solaris Hub [Phantom Forces, Arsenal, Bad Business, Sonic Speed Simulator, SCP 3008]", "https://solarishub.net/script.lua"},
+                {"Universal FE", "https://raw.githubusercontent.com/Dvrknvss/UniversalFEScriptHub/main/Script"},
+                {"Sirius", "https://raw.githubusercontent.com/shlexware/Sirius/request/Loader"},
+                {"Arsonia [Arsenal]", "https://raw.githubusercontent.com/The3Bakers4565/Spicy-Bagel/main/Other/Arsenal/Arsonia.lua"},
+                {"Strawhook [Phantom Forces]", "https://raw.githubusercontent.com/VoidMasterX/strawhook/main/script.lua"},
+                {"Dex v4", "https://raw.githubusercontent.com/alvin677/search/main/dexv4.lua?token=GHSAT0AAAAAABVYQNBKQDMPPLCTCDFH65O2YW2YCZA"},
+                {"UTG V3", "https://raw.githubusercontent.com/Blukez/Scripts/main/UTG%20V3%20RAW"},
+                {"FE Spiderman", "https://raw.githubusercontent.com/alvin677/search/main/message%20(4).txt"},
+                {"Owl Hub", "https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"},
+                {"V.G Hub", "https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub"},
+                {"Soggy Hub", "https://soggyhubv2.vercel.app"},
+                {"Yokes Hub", "https://api.upload.systems/pastes/a6kcN3OL4pSQ/raw"},
+                {"simplity", "https://raw.githubusercontent.com/HeyGyt/simplit/main/main"},
+                {"Proxima Hub [Tapping Legends X, Rebirth Champions X, Anime Journey, Ninja Legends, Gun Simulator, Legends Of Speed, Destruction Simulator, Saber Simulator, Tower Of Hell, Lucky Block, Horrific Housing, Anime Sword Simulator, Kick Off, Givenchy Beauty House, Tommy Play, Gucci Town, Broken Bones Simulator, Tate McRae Concert Experience, Samsumg Superstar Galaxy, Spotify Island, Logitech Song Breaker Awards, Alo Sanctuary, Batland, Clicker Madness, Roblox Pro League]", "https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua"}
 
 }
 
@@ -249,7 +197,7 @@ Scripts.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Scripts.BorderSizePixel = 0
 Scripts.Position = UDim2.new(0.0174326878, 0, 0.0388888903, 0)
 Scripts.Size = UDim2.new(0, 337, 0, 165)
-Scripts.CanvasSize = UDim2.new(0, 0, #buttonNames*0.172, 0)
+Scripts.CanvasSize = UDim2.new(0, 0, #storedScripts*0.172, 0)
 Scripts.ScrollBarThickness = 2
 
 -- SCRIPT VIEWING
@@ -394,7 +342,7 @@ log.BorderSizePixel = 0
 log.Position = UDim2.new(0.208571434, 0, 0, 0)
 log.Size = UDim2.new(0, 223, 0, 45)
 log.Font = Enum.Font.SourceSans
-log.Text = "discord.gg/sgK9Xx9aBp"
+log.Text = --[["discord.gg/sgK9Xx9aBp"]] "discord.gg/workspace"
 log.TextColor3 = Color3.fromRGB(220, 220, 220)
 log.TextSize = 18.000
 log.ClearTextOnFocus = false
@@ -800,7 +748,7 @@ end)
 
 
 -- Scripts from this file (the lists above)
-for i = 1, #buttonNames do
+for i = 1, #storedScripts do
     local temp = Instance.new("TextButton")
     local temp2 = Instance.new("UICorner")
     local source = Instance.new("TextButton")
@@ -815,7 +763,7 @@ for i = 1, #buttonNames do
     temp.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
     temp.Size = UDim2.new(0, 247, 0, 29)
     temp.Font = Enum.Font.SourceSans
-    temp.Text = "≡ "..buttonNames[i]
+    temp.Text = "≡ "..storedScripts[i][1]
     temp.TextColor3 = Color3.fromRGB(220, 220, 220)
     temp.TextSize = 14.000
     temp.TextScaled = true
@@ -823,7 +771,7 @@ for i = 1, #buttonNames do
         Searchbar.Text = ""
         Bar.Visible = false
         loadstring(game:HttpGet("https://raw.githubusercontent.com/alvin677/search/main/prompt.lua",true))()
-        loadstring(game:HttpGet((buttonScripts[i]),true))()
+        loadstring(game:HttpGet((storedScripts[i][2]),true))()
     end)
 
     temp2.CornerRadius = UDim.new(0.300000012, 0)
@@ -841,7 +789,7 @@ for i = 1, #buttonNames do
     source.TextSize = 14.000
     source.MouseButton1Click:connect(function()
         sourceView.Visible = true
-        code.Text = buttonScripts[i];
+        code.Text = storedScripts[i][2];
     end)
 
     source2.CornerRadius = UDim.new(0.300000012, 0)
@@ -859,7 +807,7 @@ for i = 1, #buttonNames do
     fullname.TextSize = 14.000
     fullname.MouseButton1Click:connect(function()
         sourceView.Visible = true
-        code.Text = buttonNames[i];
+        code.Text = storedScripts[i][1];
     end)
 
     fullname2.CornerRadius = UDim.new(0.300000012, 0)
@@ -868,11 +816,16 @@ end
 
 -- Scripts from website (the database, community uploaded scripts)
 local scriptAmount = game:HttpGet("https://rs.jonhosting.com/rblx/a")
+local onlineScripts = game:HttpGet("https://rs.jonhosting.com/rblxget")
+onlineScripts = game.HttpService:JSONDecode(onlineScripts)
+-- Example: onlineScripts[1][1] would return the name of the first uploaded script
+-- The first 1 is the script id, the second 1 is script information: currently there's 1, 2 and 3 where 1 is the name, 2 is the script and 3 is the verified status
+
 scriptAmount += 1
 for i = 0, scriptAmount do
     local i = scriptAmount - i
     pcall(function()
-    local scriptName = game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".txt")
+    local scriptName = onlineScripts[i][1]
     local temp = Instance.new("TextButton")
     local temp2 = Instance.new("UICorner")
     local source = Instance.new("TextButton")
@@ -888,7 +841,7 @@ for i = 0, scriptAmount do
     temp.Size = UDim2.new(0, 247, 0, 29)
     temp.Font = Enum.Font.SourceSans
     -- Is script verified or not?
-    local ver = game:HttpGet('https://rs.jonhosting.com/ver/'..i..".txt")
+    local ver = onlineScripts[i][3]
     if ver == "1" then
         temp.Text = i.." ✔️ "..scriptName
     else
@@ -900,7 +853,7 @@ for i = 0, scriptAmount do
     temp.MouseButton1Click:connect(function()
         Searchbar.Text = ""
         Bar.Visible = false
-        loadstring(game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".lua",true))()
+        loadstring(onlineScripts[i][2])()
     end)
 
     temp2.CornerRadius = UDim.new(0.300000012, 0)
@@ -918,7 +871,7 @@ for i = 0, scriptAmount do
     source.TextSize = 14.000
     source.MouseButton1Click:connect(function()
         sourceView.Visible = true
-        code.Text = game:HttpGet("https://rs.jonhosting.com/rblx/"..i..".lua");
+        code.Text = onlineScripts[i][2];
     end)
 
     source2.CornerRadius = UDim.new(0.300000012, 0)
