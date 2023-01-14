@@ -60,7 +60,7 @@ local log = Instance.new("TextBox")
 local discord = Instance.new("TextButton")
 local suggestion = Instance.new("TextBox")
 local UICorner_9 = Instance.new("UICorner")
-local Notification = Instance.new("Frame")
+local RightMenu = Instance.new("Frame")
 local UICorner_10 = Instance.new("UICorner")
 local text = Instance.new("TextLabel")
 local status = Instance.new("Frame")
@@ -92,7 +92,7 @@ Searchbar.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 Searchbar.BackgroundTransparency = 1.000
 Searchbar.BorderSizePixel = 0
 Searchbar.Position = UDim2.new(0.0174326878, 0, 0.120167762, 0)
-Searchbar.Size = UDim2.new(0, 290, 0, 27)
+Searchbar.Size = UDim2.new(0, 338, 0, 27)
 Searchbar.ZIndex = 2
 Searchbar.Font = Enum.Font.SourceSans
 Searchbar.Text = ""
@@ -112,17 +112,18 @@ SettingsButton.BorderSizePixel = 0
 SettingsButton.Position = UDim2.new(0.855900645, 0, 0.00588230975, 0)
 SettingsButton.Size = UDim2.new(0, 50, 0, 34)
 SettingsButton.Font = Enum.Font.SourceSans
-SettingsButton.Text = "⚙"
+SettingsButton.Text = "☁"
 SettingsButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 SettingsButton.TextSize = 20.000
 SettingsButton.TextWrapped = true
-SettingsButton.MouseButton1Click:connect(function()
-if Settingsbar.Visible == false then
-    Settingsbar.Visible = true
-    elseif Settingsbar.Visible == true then
-        Settingsbar.Visible = false
-    end
-end)
+SettingsButton.Visible = false
+--[[SettingsButton.MouseButton1Click:connect(function()
+    if RightMenu.Visible == false then
+        RightMenu.Visible = true
+        elseif RightMenu.Visible == true then
+            RightMenu.Visible = false
+        end
+    end)]]
 
 UICorner_2.CornerRadius = UDim.new(0.300000012, 0)
 UICorner_2.Parent = SettingsButton
@@ -133,7 +134,7 @@ ScriptsFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 ScriptsFrame.BackgroundTransparency = 0.500
 ScriptsFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ScriptsFrame.BorderSizePixel = 2
-ScriptsFrame.Position = UDim2.new(0, 0, -5.31428576, 0)
+ScriptsFrame.Position = UDim2.new(0, 0, -6.71428576, 0)
 ScriptsFrame.Size = UDim2.new(0, 350, 0, 180)
 ScriptsFrame.Visible = false
 
@@ -311,7 +312,7 @@ Settingsbar.BackgroundTransparency = 0.700
 Settingsbar.BorderSizePixel = 0
 Settingsbar.Position = UDim2.new(0, 0, -1.45714283, 0)
 Settingsbar.Size = UDim2.new(0, 350, 0, 45)
-Settingsbar.Visible = false
+Settingsbar.Visible = true
 
 UICorner_7.CornerRadius = UDim.new(0.300000012, 0)
 UICorner_7.Parent = Settingsbar
@@ -357,8 +358,8 @@ discord.BorderSizePixel = 0
 discord.Position = UDim2.new(0.845714271, 0, 0, 0)
 discord.Selectable = false
 discord.Size = UDim2.new(0, 53, 0, 45)
-discord.Font = Enum.Font.SourceSans
-discord.Text = "★"
+discord.Font = Enum.Font.FredokaOne
+discord.Text = "X"
 discord.TextColor3 = Color3.fromRGB(220, 220, 220)
 discord.TextSize = 24.000
 discord.TextWrapped = true
@@ -372,7 +373,7 @@ suggestion.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 suggestion.BorderSizePixel = 0
 suggestion.Position = UDim2.new(0.0174326878, 0, 0.120167762, 0)
 suggestion.Selectable = false
-suggestion.Size = UDim2.new(0, 290, 0, 27)
+suggestion.Size = UDim2.new(0, 338, 0, 27)
 suggestion.ClearTextOnFocus = false
 suggestion.Font = Enum.Font.SourceSans
 suggestion.ShowNativeInput = false
@@ -386,34 +387,35 @@ suggestion.TextXAlignment = Enum.TextXAlignment.Left
 UICorner_9.CornerRadius = UDim.new(0.300000012, 0)
 UICorner_9.Parent = suggestion
 
-Notification.Name = "Notification"
-Notification.Parent = Search
-Notification.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-Notification.Position = UDim2.new(0.553803661, 0, 0.882571101, 0)
-Notification.Size = UDim2.new(0, 130, 0, 35)
-Notification.Visible = false
+RightMenu.Name = "RightMenu"
+RightMenu.Parent = Search
+RightMenu.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+RightMenu.Position = UDim2.new(0.554, 0, 0.725, 0)
+RightMenu.Size = UDim2.new(0, 250, 0, 280)
+RightMenu.Visible = false
 
-UICorner_10.CornerRadius = UDim.new(0.300000012, 0)
-UICorner_10.Parent = Notification
+UICorner_10.CornerRadius = UDim.new(0.100000012, 0)
+UICorner_10.Parent = RightMenu
 
 text.Name = "text"
-text.Parent = Notification
+text.Parent = RightMenu
 text.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 text.BackgroundTransparency = 1.000
 text.BorderSizePixel = 0
-text.Position = UDim2.new(0.0461538471, 0, 0.00588204525, 0)
+text.Position = UDim2.new(0.0461538471, 0, 0.87, 0)
 text.Size = UDim2.new(0, 124, 0, 34)
 text.Font = Enum.Font.Ubuntu
-text.Text = "notification"
+text.Text = "By Cedric#0591"
 text.TextColor3 = Color3.fromRGB(220, 220, 220)
 text.TextScaled = true
 text.TextSize = 1.000
 text.TextWrapped = true
 
 status.Name = "status"
-status.Parent = Notification
-status.BackgroundColor3 = Color3.fromRGB(51, 191, 0)
-status.Size = UDim2.new(0, 6, 0, 35)
+status.Parent = RightMenu
+--status.BackgroundColor3 = Color3.fromRGB(51, 191, 0)
+status.BackgroundColor3 = Color3.fromRGB(191, 51, 0)
+status.Size = UDim2.new(0, 12, 0, 12)
 
 UICorner_11.CornerRadius = UDim.new(1, 0)
 UICorner_11.Parent = status
@@ -427,9 +429,9 @@ colorGreen = Color3.fromRGB(51, 191, 0)
 function notify(message, notifyTime, color)
     text.Text = message
     status.BackgroundColor3 = color
-    Notification.Visible = true
+    RightMenu.Visible = true
     wait(notifyTime)
-    Notification.Visible = false
+    RightMenu.Visible = false
 end
 
 -- The actual search thing, I used a youtube video for this part so it's kinda skidded but I did some modifications.
@@ -765,11 +767,12 @@ for i = 1, #storedScripts do
     temp.Font = Enum.Font.SourceSans
     temp.Text = "≡ "..storedScripts[i][1]
     temp.TextColor3 = Color3.fromRGB(220, 220, 220)
-    temp.TextSize = 14.000
-    temp.TextScaled = true
+    temp.TextSize = 20.000
+    temp.TextXAlignment = Enum.TextXAlignment.Left
     temp.MouseButton1Click:connect(function()
         Searchbar.Text = ""
         Bar.Visible = false
+        sourceView.Visible = false
         loadstring(game:HttpGet("https://raw.githubusercontent.com/alvin677/search/main/prompt.lua",true))()
         loadstring(game:HttpGet((storedScripts[i][2]),true))()
     end)
@@ -802,8 +805,9 @@ for i = 1, #storedScripts do
     fullname.Position = UDim2.new(1.02249062, 0, 0, 0)
     fullname.Size = UDim2.new(0, 37, 0, 29)
     fullname.Font = Enum.Font.SourceSans
-    fullname.Text = "💬"
-    fullname.TextColor3 = Color3.fromRGB(0, 0, 0)
+    fullname.Text = "+"
+    fullname.TextScaled = true
+    fullname.TextColor3 = Color3.fromRGB(255, 255, 255)
     fullname.TextSize = 14.000
     fullname.MouseButton1Click:connect(function()
         sourceView.Visible = true
@@ -840,19 +844,20 @@ for i = 0, scriptAmount do
     temp.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
     temp.Size = UDim2.new(0, 247, 0, 29)
     temp.Font = Enum.Font.SourceSans
+    temp.TextXAlignment = Enum.TextXAlignment.Left
     -- Is script verified or not?
     local ver = onlineScripts[i][3]
     if ver == "1" then
-        temp.Text = i.." ✔️ "..scriptName
+        temp.Text = i.." ✓ "..scriptName
     else
-        temp.Text = i.." ⚠️ "..scriptName
+        temp.Text = i.." ⚠ "..scriptName
     end
     temp.TextColor3 = Color3.fromRGB(220, 220, 220)
-    temp.TextSize = 14.000
-    temp.TextScaled = true
+    temp.TextSize = 20.000
     temp.MouseButton1Click:connect(function()
         Searchbar.Text = ""
         Bar.Visible = false
+        sourceView.Visible = false
         loadstring(onlineScripts[i][2])()
     end)
 
@@ -884,8 +889,9 @@ for i = 0, scriptAmount do
     fullname.Position = UDim2.new(1.02249062, 0, 0, 0)
     fullname.Size = UDim2.new(0, 37, 0, 29)
     fullname.Font = Enum.Font.SourceSans
-    fullname.Text = "💬"
-    fullname.TextColor3 = Color3.fromRGB(0, 0, 0)
+    fullname.Text = "+"
+    fullname.TextScaled = true
+    fullname.TextColor3 = Color3.fromRGB(255, 255, 255)
     fullname.TextSize = 14.000
     fullname.MouseButton1Click:connect(function()
         sourceView.Visible = true
