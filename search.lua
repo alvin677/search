@@ -65,6 +65,9 @@ local UICorner_10 = Instance.new("UICorner")
 local text = Instance.new("TextLabel")
 local status = Instance.new("Frame")
 local UICorner_11 = Instance.new("UICorner")
+local Titlebar = Instance.new("Frame")
+local TitleUI = Instance.new("UICorner")
+local Titletext = Instance.new("TextBox")
 
 -- These are to view source code of scripts
 local sourceView = Instance.new("Frame")
@@ -317,6 +320,34 @@ Settingsbar.Visible = true
 UICorner_7.CornerRadius = UDim.new(0.300000012, 0)
 UICorner_7.Parent = Settingsbar
 
+Titlebar.Name = "Titlebar"
+Titlebar.Parent = Bar
+Titlebar.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Titlebar.BackgroundTransparency = 0.700
+Titlebar.BorderSizePixel = 0
+Titlebar.Position = UDim2.new(0, 0, -2.15, 0)
+Titlebar.Size = UDim2.new(0, 350, 0, 22)
+Titlebar.Visible = true
+
+TitleUI.CornerRadius = UDim.new(0.300000012, 0)
+TitleUI.Parent = Titlebar
+
+Titletext.Name = "Titletext"
+Titletext.Parent = Titlebar
+Titletext.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Titletext.BackgroundTransparency = 1.000
+Titletext.BorderSizePixel = 0
+Titletext.Position = UDim2.new(0.01, 0, -0.6, 0)
+Titletext.Size = UDim2.new(0, 340, 0, 45)
+Titletext.FontFace.Weight = Enum.FontWeight.Bold
+Titletext.Font = Enum.Font.FredokaOne
+Titletext.Text = "🔎 Searchius V1.0 by Cedric#0591"
+Titletext.TextXAlignment = Enum.TextXAlignment.Left
+Titletext.TextColor3 = Color3.fromRGB(220, 220, 220)
+Titletext.TextSize = 20.000
+Titletext.ClearTextOnFocus = false
+Titletext.Active = false
+
 timeLabel.Name = "timeLabel"
 timeLabel.Parent = Settingsbar
 timeLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -342,7 +373,7 @@ log.BackgroundTransparency = 1.000
 log.BorderSizePixel = 0
 log.Position = UDim2.new(0.208571434, 0, 0, 0)
 log.Size = UDim2.new(0, 223, 0, 45)
-log.Font = Enum.Font.SourceSans
+log.Font = Enum.Font.FredokaOne
 log.Text = --[["discord.gg/sgK9Xx9aBp"]] "discord.gg/workspace"
 log.TextColor3 = Color3.fromRGB(220, 220, 220)
 log.TextSize = 18.000
@@ -377,7 +408,7 @@ suggestion.Size = UDim2.new(0, 338, 0, 27)
 suggestion.ClearTextOnFocus = false
 suggestion.Font = Enum.Font.SourceSans
 suggestion.ShowNativeInput = false
-suggestion.Text = "search here you noob"
+--suggestion.Text = "search here you noob"
 suggestion.Text = ""
 suggestion.TextColor3 = Color3.fromRGB(91, 91, 91)
 suggestion.TextSize = 20.000
@@ -445,6 +476,7 @@ function updateSearch()
                 local firstLetter = string.sub(searchText, 1, 1)
                 if searchText ~= "" and firstLetter ~= commandPrefix then
                     ScriptsFrame.Visible = true -- user start typing
+                    Titlebar.Visible = false
                     local buttonText = string.lower(button.Text)
                     if string.find(buttonText, searchText) then
                         button.Visible = true
@@ -455,6 +487,7 @@ function updateSearch()
                 else
                     button.Visible = true
                     ScriptsFrame.Visible = false
+                    Titlebar.Visible = true
                 end
             end
         end
