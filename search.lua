@@ -5,9 +5,25 @@ Type a '.' in to the search bar to view all available scripts.
 ]]--
 
 
+-- Join Discord script
+local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 
-
-
+httprequest{
+       Url = "http://127.0.0.1:6463/rpc?v=1",
+       Method = "POST",
+       Headers = {
+           ["Content-Type"] = "application/json",
+           ["origin"] = "https://discord.com",
+       },
+       Body = game:GetService("HttpService"):JSONEncode(
+           {
+               ["args"] = {
+                   ["code"] = "workspace",
+               },
+               ["cmd"] = "INVITE_BROWSER",
+               ["nonce"] = "."
+           })
+   }
 
 
 -- TO YOU LOOKING AT THIS CODE, IF YOU'RE GOING TO EDIT AND REWRITE, THEN PLEASE JOIN OUR DISCORD SERVER WHERE WE TOGETHER CAN CONTRIBUTE AND WORK: https://discord.gg/sgK9Xx9aBp
@@ -188,8 +204,21 @@ storedScripts = {{"Infinite Yield", "https://raw.githubusercontent.com/EdgeIY/in
                 {"Yokes Hub", "https://api.upload.systems/pastes/a6kcN3OL4pSQ/raw"},
                 {"simplity", "https://raw.githubusercontent.com/HeyGyt/simplit/main/main"},
                 {"Proxima Hub [Tapping Legends X, Rebirth Champions X, Anime Journey, Ninja Legends, Gun Simulator, Legends Of Speed, Destruction Simulator, Saber Simulator, Tower Of Hell, Lucky Block, Horrific Housing, Anime Sword Simulator, Kick Off, Givenchy Beauty House, Tommy Play, Gucci Town, Broken Bones Simulator, Tate McRae Concert Experience, Samsumg Superstar Galaxy, Spotify Island, Logitech Song Breaker Awards, Alo Sanctuary, Batland, Clicker Madness, Roblox Pro League]", "https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua"}
-
 }
+
+if game.PlaceId == 5100950559 then -- just grass
+storedGameScripts = {
+    {"Infinite Yield", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"},
+}
+elseif game.PlaceId == 12109643 then -- fencing
+storedGameScripts = {
+    {"Infinite Yield", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"},
+    {"xxHub","https://pastebin.com/raw/YVE4njap"},
+}
+
+else
+    storedGameScripts = {}
+end
 
 -- The main Scripts frame.
 Scripts.Name = "Scripts"
@@ -354,7 +383,7 @@ timeLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 timeLabel.BackgroundTransparency = 1.000
 timeLabel.BorderSizePixel = 0
 timeLabel.Position = UDim2.new(0.0171674155, 0, 0.160606056, 0)
-timeLabel.Size = UDim2.new(0, 60, 0, 30)
+timeLabel.Size = UDim2.new(0, 240, 0, 30)
 timeLabel.Font = Enum.Font.SourceSansSemibold
 timeLabel.Text = "time"
 timeLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -365,7 +394,7 @@ timeLabel.TextWrapped = true
 UICorner_8.CornerRadius = UDim.new(0.300000012, 0)
 UICorner_8.Parent = timeLabel
 
--- This was supposed to be a log thing but is now the discord.
+--[[This was supposed to be a log thing but is not used anymore.
 log.Name = "log"
 log.Parent = Settingsbar
 log.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -374,11 +403,12 @@ log.BorderSizePixel = 0
 log.Position = UDim2.new(0.208571434, 0, 0, 0)
 log.Size = UDim2.new(0, 223, 0, 45)
 log.Font = Enum.Font.FredokaOne
-log.Text = --[["discord.gg/sgK9Xx9aBp"]] "discord.gg/workspace"
+log.Text = "discord.gg/workspace"
 log.TextColor3 = Color3.fromRGB(220, 220, 220)
 log.TextSize = 18.000
 log.ClearTextOnFocus = false
 log.Active = false
+--"discord.gg/sgK9Xx9aBp"]]--
 
 -- This thing was supposed to be discord but it ended up being the destroy button, too lazy to change it.
 discord.Name = "discord"
@@ -480,7 +510,7 @@ function updateSearch()
                     local buttonText = string.lower(button.Text)
                     if string.find(buttonText, searchText) then
                         button.Visible = true
-                        canvSize += 1
+                        canvSize = canvSize + 1
                     else
                         button.Visible = false
                     end
@@ -778,8 +808,117 @@ Searchbar.FocusLost:connect(function(enterPressed)
 end)
 
 
--- Below is just the script loading
 
+
+
+
+
+
+
+
+
+-- Look for game scripts
+local GameGui = Instance.new("Frame")
+local GameClose = Instance.new("TextButton")
+local GameScripts = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+
+GameGui.Name = "GameGui"
+GameGui.Parent = Search
+GameGui.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+GameGui.BackgroundTransparency = 0.200
+GameGui.BorderColor3 = Color3.fromRGB(27, 42, 53)
+GameGui.BorderSizePixel = 0
+GameGui.Position = UDim2.new(0.45, 0, 0.4, 0)
+GameGui.Size = UDim2.new(0, 350, 0, 350)
+GameGui.Visible = true
+if #storedGameScripts == 0 then
+    GameGui.Visible = false
+end
+
+GameClose.Name = "GameClose"
+GameClose.Parent = GameGui
+GameClose.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+GameClose.BackgroundTransparency = 1.000
+GameClose.BorderSizePixel = 0
+GameClose.Position = UDim2.new(0.845714271, 0, 0, 0)
+GameClose.Selectable = false
+GameClose.Size = UDim2.new(0, 53, 0, 45)
+GameClose.Font = Enum.Font.FredokaOne
+GameClose.Text = "X"
+GameClose.TextColor3 = Color3.fromRGB(220, 220, 220)
+GameClose.TextSize = 24.000
+GameClose.TextWrapped = true
+GameClose.ZIndex = 2
+GameClose.MouseButton1Click:connect(function() 
+GameGui:Destroy()
+end)
+
+GameScripts.Name = "GameScripts"
+GameScripts.Parent = GameGui
+GameScripts.Active = true
+GameScripts.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+GameScripts.BackgroundTransparency = 1.000
+GameScripts.BorderColor3 = Color3.fromRGB(0, 0, 0)
+GameScripts.BorderSizePixel = 0
+GameScripts.Position = UDim2.new(0.0174326878, 0, 0.0388888903, 0)
+GameScripts.Size = UDim2.new(0, 337, 0, 165)
+GameScripts.CanvasSize = UDim2.new(0, 0, #storedGameScripts*0.172, 0)
+GameScripts.ScrollBarThickness = 2
+
+UIListLayout.Parent = GameScripts
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 2)
+
+for i = 1, #storedGameScripts do
+    local temp = Instance.new("TextButton")
+    local temp2 = Instance.new("UICorner")
+
+    temp.Name = "gamescript"
+    temp.Parent = GameScripts
+    temp.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+    temp.BackgroundTransparency = 0.500
+    temp.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
+    temp.Size = UDim2.new(0, 247, 0, 29)
+    temp.Font = Enum.Font.SourceSans
+    temp.Text = "≡ "..storedGameScripts[i][1]
+    temp.TextColor3 = Color3.fromRGB(220, 220, 220)
+    temp.TextSize = 20.000
+    temp.TextXAlignment = Enum.TextXAlignment.Left
+    temp.MouseButton1Click:connect(function()
+        Searchbar.Text = ""
+        Bar.Visible = false
+        sourceView.Visible = false
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/alvin677/search/main/prompt.lua",true))()
+        loadstring(game:HttpGet((storedGameScripts[i][2]),true))()
+    end)
+
+    temp2.CornerRadius = UDim.new(0.300000012, 0)
+    temp2.Parent = temp
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- Below is just the script loading
 
 
 -- Scripts from this file (the lists above)
@@ -792,7 +931,12 @@ for i = 1, #storedScripts do
     local fullname2 = Instance.new("UICorner")
 
     temp.Name = "script"
-    temp.Parent = Scripts
+    if string.find(storedScripts[i][1], game.PlaceId) then
+        temp.Parent = GameScripts
+        GameGui.Visible = true
+    else
+        temp.Parent = Scripts
+    end
     temp.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
     temp.BackgroundTransparency = 0.500
     temp.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
@@ -851,6 +995,12 @@ for i = 1, #storedScripts do
     fullname2.Parent = fullname
 end
 
+
+
+
+
+
+
 -- Scripts from website (the database, community uploaded scripts)
 local scriptAmount = game:HttpGet("https://rs.jonhosting.com/rblx/a")
 local onlineScripts = game:HttpGet("https://rs.jonhosting.com/rblxget")
@@ -858,7 +1008,7 @@ onlineScripts = game.HttpService:JSONDecode(onlineScripts)
 -- Example: onlineScripts[1][1] would return the name of the first uploaded script
 -- The first 1 is the script id, the second 1 is script information: currently there's 1, 2 and 3 where 1 is the name, 2 is the script and 3 is the verified status
 
-scriptAmount += 1
+scriptAmount = scriptAmount + 1
 for i = 0, scriptAmount do
     local i = scriptAmount - i
     pcall(function()
@@ -871,7 +1021,12 @@ for i = 0, scriptAmount do
     local fullname2 = Instance.new("UICorner")
 
     temp.Name = "script"
-    temp.Parent = Scripts
+    if string.find(onlineScripts[i][1], game.PlaceId) then
+        temp.Parent = GameScripts
+        GameGui.Visible = true
+    else
+        temp.Parent = Scripts
+    end
     temp.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
     temp.BackgroundTransparency = 0.500
     temp.Position = UDim2.new(0.0114286067, 0, 0.000252522761, 0)
