@@ -6,6 +6,7 @@ Type a '.' in to the search bar to view all available scripts.
 
 
 -- Join Discord script
+pcall(function()
 local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 
 httprequest{
@@ -25,7 +26,7 @@ httprequest{
            })
    }
 
-
+end)
 -- TO YOU LOOKING AT THIS CODE, IF YOU'RE GOING TO EDIT AND REWRITE, THEN PLEASE JOIN OUR DISCORD SERVER WHERE WE TOGETHER CAN CONTRIBUTE AND WORK: https://discord.gg/sgK9Xx9aBp
 
 
