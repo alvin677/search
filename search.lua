@@ -370,7 +370,7 @@ Titletext.Position = UDim2.new(0.01, 0, -0.6, 0)
 Titletext.Size = UDim2.new(0, 340, 0, 45)
 Titletext.FontFace.Weight = Enum.FontWeight.Bold
 Titletext.Font = Enum.Font.FredokaOne
-Titletext.Text = "🔎 Searchius V1.1 by Cedric#0591"
+Titletext.Text = "🔎 Searchius V2.2 by Cedric#0591"
 Titletext.TextXAlignment = Enum.TextXAlignment.Left
 Titletext.TextColor3 = Color3.fromRGB(220, 220, 220)
 Titletext.TextSize = 20.000
@@ -788,6 +788,16 @@ spawn(updateSearch)
 spawn(timeTrack)
 spawn(suggestions)
 
+function mobileUser()
+    while wait(0.1) do
+        Bar.Visible = true
+    end
+end
+
+if game:GetService('UserInputService').TouchEnabled then
+    Titletext.Visible = false
+    spawn(mobileUser)
+end
 
 -- This part opens the gui once you press the button (default ;).
 game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
